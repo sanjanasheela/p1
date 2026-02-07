@@ -1,0 +1,3477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=${outputEncoding}" />
+    <title>JDepend Report Metrics</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          </head>
+  <body class="composite">
+    <div id="banner">
+                      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2026-02-02
+                      </div>
+            <div class="xright">      
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                                                <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>Metric Results</h2>
+[ <a href="#summary">summary</a> ] [ <a href="#packages">packages</a> ] [ <a href="#cycles">cycles</a> ] [ <a href="#explanations">explanations</a> ] <br />
+<br />
+The following document contains the results of a JDepend metric analysis. The various metrics are defined at the bottom of this document.<br />
+<br />
+<a name="summary"></a><h2>Summary</h2>
+[ <a href="#summary">summary</a> ] [ <a href="#packages">packages</a> ] [ <a href="#cycles">cycles</a> ] [ <a href="#explanations">explanations</a> ] <br />
+<br />
+<table class="bodyTable"><tr class="a"><th>Package</th>
+<th>TC</th>
+<th>CC</th>
+<th>AC</th>
+<th>Ca</th>
+<th>Ce</th>
+<th>A</th>
+<th>I</th>
+<th>D</th>
+<th>V</th>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller">org.apache.roller</a></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>6</td>
+<td>2</td>
+<td>100.0%</td>
+<td>25.0%</td>
+<td>25.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.planet.business">org.apache.roller.planet.business</a></td>
+<td>10</td>
+<td>3</td>
+<td>7</td>
+<td>9</td>
+<td>10</td>
+<td>70.0%</td>
+<td>52.999996%</td>
+<td>23.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.planet.business.fetcher">org.apache.roller.planet.business.fetcher</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>5</td>
+<td>50.0%</td>
+<td>56.0%</td>
+<td>6.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.planet.business.jpa">org.apache.roller.planet.business.jpa</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>7</td>
+<td>50.0%</td>
+<td>88.0%</td>
+<td>38.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.planet.business.updater">org.apache.roller.planet.business.updater</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>50.0%</td>
+<td>75.0%</td>
+<td>25.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.planet.pojos">org.apache.roller.planet.pojos</a></td>
+<td>7</td>
+<td>6</td>
+<td>1</td>
+<td>7</td>
+<td>8</td>
+<td>14.0%</td>
+<td>52.999996%</td>
+<td>32.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.planet.tasks">org.apache.roller.planet.tasks</a></td>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>9</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.planet.util.rome">org.apache.roller.planet.util.rome</a></td>
+<td>9</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>10</td>
+<td>11.0%</td>
+<td>100.0%</td>
+<td>11.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.util">org.apache.roller.util</a></td>
+<td>4</td>
+<td>3</td>
+<td>1</td>
+<td>10</td>
+<td>6</td>
+<td>25.0%</td>
+<td>38.0%</td>
+<td>38.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger">org.apache.roller.weblogger</a></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>25</td>
+<td>2</td>
+<td>0.0%</td>
+<td>7.0%</td>
+<td>93.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.business">org.apache.roller.weblogger.business</a></td>
+<td>22</td>
+<td>9</td>
+<td>13</td>
+<td>24</td>
+<td>19</td>
+<td>58.999996%</td>
+<td>44.0%</td>
+<td>3.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.business.jpa">org.apache.roller.weblogger.business.jpa</a></td>
+<td>6</td>
+<td>5</td>
+<td>1</td>
+<td>2</td>
+<td>26</td>
+<td>17.0%</td>
+<td>93.0%</td>
+<td>10.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.business.pings">org.apache.roller.weblogger.business.pings</a></td>
+<td>4</td>
+<td>0</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+<td>100.0%</td>
+<td>67.0%</td>
+<td>67.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.business.plugins">org.apache.roller.weblogger.business.plugins</a></td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.business.plugins.comment">org.apache.roller.weblogger.business.plugins.comment</a></td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>5</td>
+<td>67.0%</td>
+<td>100.0%</td>
+<td>67.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.business.plugins.entry">org.apache.roller.weblogger.business.plugins.entry</a></td>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>7</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.business.runnable">org.apache.roller.weblogger.business.runnable</a></td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>5</td>
+<td>100.0%</td>
+<td>71.0%</td>
+<td>71.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.business.search">org.apache.roller.weblogger.business.search</a></td>
+<td>4</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>5</td>
+<td>50.0%</td>
+<td>56.0%</td>
+<td>6.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.business.search.lucene">org.apache.roller.weblogger.business.search.lucene</a></td>
+<td>10</td>
+<td>6</td>
+<td>4</td>
+<td>1</td>
+<td>19</td>
+<td>40.0%</td>
+<td>95.0%</td>
+<td>35.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.business.startup">org.apache.roller.weblogger.business.startup</a></td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>67.0%</td>
+<td>67.0%</td>
+<td>33.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.business.themes">org.apache.roller.weblogger.business.themes</a></td>
+<td>12</td>
+<td>9</td>
+<td>3</td>
+<td>4</td>
+<td>7</td>
+<td>25.0%</td>
+<td>64.0%</td>
+<td>11.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.config">org.apache.roller.weblogger.config</a></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>17</td>
+<td>1</td>
+<td>100.0%</td>
+<td>6.0%</td>
+<td>6.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.config.runtime">org.apache.roller.weblogger.config.runtime</a></td>
+<td>4</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>5</td>
+<td>25.0%</td>
+<td>100.0%</td>
+<td>25.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.planet.business">org.apache.roller.weblogger.planet.business</a></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>3</td>
+<td>0.0%</td>
+<td>75.0%</td>
+<td>25.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.planet.ui">org.apache.roller.weblogger.planet.ui</a></td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>6</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.pojos">org.apache.roller.weblogger.pojos</a></td>
+<td>50</td>
+<td>41</td>
+<td>9</td>
+<td>30</td>
+<td>13</td>
+<td>18.0%</td>
+<td>30.000002%</td>
+<td>52.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.pojos.wrapper">org.apache.roller.weblogger.pojos.wrapper</a></td>
+<td>7</td>
+<td>6</td>
+<td>1</td>
+<td>4</td>
+<td>9</td>
+<td>14.0%</td>
+<td>69.0%</td>
+<td>16.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.core">org.apache.roller.weblogger.ui.core</a></td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>3</td>
+<td>4</td>
+<td>0.0%</td>
+<td>57.0%</td>
+<td>43.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.core.filters">org.apache.roller.weblogger.ui.core.filters</a></td>
+<td>4</td>
+<td>3</td>
+<td>1</td>
+<td>0</td>
+<td>12</td>
+<td>25.0%</td>
+<td>100.0%</td>
+<td>25.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.core.plugins">org.apache.roller.weblogger.ui.core.plugins</a></td>
+<td>5</td>
+<td>2</td>
+<td>3</td>
+<td>0</td>
+<td>2</td>
+<td>60.000004%</td>
+<td>100.0%</td>
+<td>60.000004%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.core.security">org.apache.roller.weblogger.ui.core.security</a></td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>0</td>
+<td>11</td>
+<td>75.0%</td>
+<td>100.0%</td>
+<td>75.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.core.tags.calendar">org.apache.roller.weblogger.ui.core.tags.calendar</a></td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>2</td>
+<td>100.0%</td>
+<td>67.0%</td>
+<td>67.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.core.util.menu">org.apache.roller.weblogger.ui.core.util.menu</a></td>
+<td>8</td>
+<td>7</td>
+<td>1</td>
+<td>2</td>
+<td>11</td>
+<td>12.0%</td>
+<td>85.0%</td>
+<td>3.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.rendering">org.apache.roller.weblogger.ui.rendering</a></td>
+<td>5</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>8</td>
+<td>80.0%</td>
+<td>89.0%</td>
+<td>69.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.rendering.filters">org.apache.roller.weblogger.ui.rendering.filters</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>6</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.rendering.mobile">org.apache.roller.weblogger.ui.rendering.mobile</a></td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>3</td>
+<td>3</td>
+<td>0.0%</td>
+<td>50.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.rendering.model">org.apache.roller.weblogger.ui.rendering.model</a></td>
+<td>22</td>
+<td>20</td>
+<td>2</td>
+<td>0</td>
+<td>25</td>
+<td>9.0%</td>
+<td>100.0%</td>
+<td>9.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.rendering.pagers">org.apache.roller.weblogger.ui.rendering.pagers</a></td>
+<td>15</td>
+<td>11</td>
+<td>4</td>
+<td>1</td>
+<td>16</td>
+<td>27.000002%</td>
+<td>94.0%</td>
+<td>21.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.rendering.plugins.comments">org.apache.roller.weblogger.ui.rendering.plugins.comments</a></td>
+<td>10</td>
+<td>7</td>
+<td>3</td>
+<td>1</td>
+<td>14</td>
+<td>30.000002%</td>
+<td>93.0%</td>
+<td>23.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.rendering.servlets">org.apache.roller.weblogger.ui.rendering.servlets</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>8</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.rendering.util">org.apache.roller.weblogger.ui.rendering.util</a></td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+<td>5</td>
+<td>33.0%</td>
+<td>62.0%</td>
+<td>4.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.rendering.util.cache">org.apache.roller.weblogger.ui.rendering.util.cache</a></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.rendering.util.mobile">org.apache.roller.weblogger.ui.rendering.util.mobile</a></td>
+<td>8</td>
+<td>6</td>
+<td>2</td>
+<td>1</td>
+<td>4</td>
+<td>25.0%</td>
+<td>80.0%</td>
+<td>5.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.rendering.velocity">org.apache.roller.weblogger.ui.rendering.velocity</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>7</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.struts2.admin">org.apache.roller.weblogger.ui.struts2.admin</a></td>
+<td>5</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>9</td>
+<td>20.0%</td>
+<td>100.0%</td>
+<td>20.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.struts2.ajax">org.apache.roller.weblogger.ui.struts2.ajax</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>9</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.struts2.core">org.apache.roller.weblogger.ui.struts2.core</a></td>
+<td>9</td>
+<td>8</td>
+<td>1</td>
+<td>0</td>
+<td>20</td>
+<td>11.0%</td>
+<td>100.0%</td>
+<td>11.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.struts2.editor">org.apache.roller.weblogger.ui.struts2.editor</a></td>
+<td>12</td>
+<td>11</td>
+<td>1</td>
+<td>0</td>
+<td>18</td>
+<td>8.0%</td>
+<td>100.0%</td>
+<td>8.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.struts2.pagers">org.apache.roller.weblogger.ui.struts2.pagers</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.ui.struts2.util">org.apache.roller.weblogger.ui.struts2.util</a></td>
+<td>9</td>
+<td>5</td>
+<td>4</td>
+<td>4</td>
+<td>13</td>
+<td>44.0%</td>
+<td>76.0%</td>
+<td>21.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.ui.tags">org.apache.roller.weblogger.ui.tags</a></td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>6</td>
+<td>67.0%</td>
+<td>100.0%</td>
+<td>67.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.util">org.apache.roller.weblogger.util</a></td>
+<td>21</td>
+<td>19</td>
+<td>2</td>
+<td>12</td>
+<td>14</td>
+<td>10.0%</td>
+<td>54.000004%</td>
+<td>37.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.util.cache">org.apache.roller.weblogger.util.cache</a></td>
+<td>8</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>5</td>
+<td>50.0%</td>
+<td>56.0%</td>
+<td>6.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.webservices.atomprotocol">org.apache.roller.weblogger.webservices.atomprotocol</a></td>
+<td>3</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>5</td>
+<td>33.0%</td>
+<td>100.0%</td>
+<td>33.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.webservices.opensearch">org.apache.roller.weblogger.webservices.opensearch</a></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.roller.weblogger.webservices.tagdata">org.apache.roller.weblogger.webservices.tagdata</a></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.roller.weblogger.webservices.xmlrpc">org.apache.roller.weblogger.webservices.xmlrpc</a></td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>11</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>1</td>
+</tr>
+</table>
+<a name="packages"></a><h2>Packages</h2>
+[ <a href="#summary">summary</a> ] [ <a href="#packages">packages</a> ] [ <a href="#cycles">cycles</a> ] [ <a href="#explanations">explanations</a> ] <br />
+<a name="org.apache.roller"></a><h3>org.apache.roller</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>6</td>
+<td>2</td>
+<td>100.0%</td>
+<td>25.0%</td>
+<td>25.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.RollerException<br />
+</td>
+<td><i>None</i></td>
+<td>org.apache.roller.planet.business<br />
+org.apache.roller.planet.business.fetcher<br />
+org.apache.roller.planet.business.jpa<br />
+org.apache.roller.planet.business.updater<br />
+org.apache.roller.planet.tasks<br />
+org.apache.roller.weblogger<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.planet.business"></a><h3>org.apache.roller.planet.business</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>9</td>
+<td>10</td>
+<td>70.0%</td>
+<td>52.999996%</td>
+<td>23.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.business.AbstractManagerImpl<br />
+org.apache.roller.planet.business.Manager<br />
+org.apache.roller.planet.business.Planet<br />
+org.apache.roller.planet.business.PlanetManager<br />
+org.apache.roller.planet.business.PlanetProvider<br />
+org.apache.roller.planet.business.PlanetURLStrategy<br />
+org.apache.roller.planet.business.package-info<br />
+</td>
+<td>org.apache.roller.planet.business.BootstrapException<br />
+org.apache.roller.planet.business.InitializationException<br />
+org.apache.roller.planet.business.MultiPlanetURLStrategy<br />
+</td>
+<td>org.apache.roller.planet.business.jpa<br />
+org.apache.roller.planet.pojos<br />
+org.apache.roller.planet.tasks<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.planet.business<br />
+org.apache.roller.weblogger.planet.ui<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+</td>
+<td>java.lang<br />
+java.net<br />
+java.nio.charset<br />
+java.util<br />
+org.apache.roller<br />
+org.apache.roller.planet.business.fetcher<br />
+org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.config<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.planet.business.fetcher"></a><h3>org.apache.roller.planet.business.fetcher</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>5</td>
+<td>50.0%</td>
+<td>56.0%</td>
+<td>6.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.business.fetcher.FeedFetcher<br />
+</td>
+<td>org.apache.roller.planet.business.fetcher.FetcherException<br />
+</td>
+<td>org.apache.roller.planet.business<br />
+org.apache.roller.planet.business.jpa<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+org.apache.roller<br />
+org.apache.roller.planet.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.planet.business.jpa"></a><h3>org.apache.roller.planet.business.jpa</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>7</td>
+<td>50.0%</td>
+<td>88.0%</td>
+<td>38.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.business.jpa.package-info<br />
+</td>
+<td>org.apache.roller.planet.business.jpa.JPAPlanetImpl<br />
+</td>
+<td>org.apache.roller.weblogger.business.jpa<br />
+</td>
+<td>java.lang<br />
+org.apache.commons.logging<br />
+org.apache.roller<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.planet.business.fetcher<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.planet.business.updater"></a><h3>org.apache.roller.planet.business.updater</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>3</td>
+<td>50.0%</td>
+<td>75.0%</td>
+<td>25.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.business.updater.FeedUpdater<br />
+</td>
+<td>org.apache.roller.planet.business.updater.UpdaterException<br />
+</td>
+<td>org.apache.roller.planet.tasks<br />
+</td>
+<td>java.lang<br />
+org.apache.roller<br />
+org.apache.roller.planet.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.planet.pojos"></a><h3>org.apache.roller.planet.pojos</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>7</td>
+<td>8</td>
+<td>14.0%</td>
+<td>52.999996%</td>
+<td>32.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.pojos.Template<br />
+</td>
+<td>org.apache.roller.planet.pojos.Author<br />
+org.apache.roller.planet.pojos.Category<br />
+org.apache.roller.planet.pojos.Planet<br />
+org.apache.roller.planet.pojos.PlanetGroup<br />
+org.apache.roller.planet.pojos.StaticTemplate<br />
+org.apache.roller.planet.pojos.SubscriptionEntry<br />
+</td>
+<td>org.apache.roller.planet.business<br />
+org.apache.roller.planet.business.fetcher<br />
+org.apache.roller.planet.business.updater<br />
+org.apache.roller.planet.tasks<br />
+org.apache.roller.weblogger.planet.ui<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.sql<br />
+java.util<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.planet.tasks"></a><h3>org.apache.roller.planet.tasks</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>9</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.tasks.PlanetTask<br />
+org.apache.roller.planet.tasks.package-info<br />
+</td>
+<td>org.apache.roller.planet.tasks.RefreshPlanetTask<br />
+org.apache.roller.planet.tasks.StaticPlanetModel<br />
+</td>
+<td><i>None</i></td>
+<td>java.lang<br />
+java.util<br />
+org.apache.commons.logging<br />
+org.apache.roller<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.planet.business.updater<br />
+org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.startup<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.planet.util.rome"></a><h3>org.apache.roller.planet.util.rome</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>10</td>
+<td>11.0%</td>
+<td>100.0%</td>
+<td>11.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.util.rome.ContentModule<br />
+</td>
+<td>org.apache.roller.planet.util.rome.ContentModuleGenerator<br />
+org.apache.roller.planet.util.rome.ContentModuleImpl<br />
+org.apache.roller.planet.util.rome.ContentModuleParser<br />
+org.apache.roller.planet.util.rome.PlanetConverterForRSS091N<br />
+org.apache.roller.planet.util.rome.PlanetConverterForRSS091U<br />
+org.apache.roller.planet.util.rome.PlanetConverterForRSS20<br />
+org.apache.roller.planet.util.rome.PlanetRSS091NParser<br />
+org.apache.roller.planet.util.rome.PlanetRSS091UParser<br />
+</td>
+<td><i>None</i></td>
+<td>com.rometools.rome.feed<br />
+com.rometools.rome.feed.module<br />
+com.rometools.rome.feed.rss<br />
+com.rometools.rome.feed.synd<br />
+com.rometools.rome.feed.synd.impl<br />
+com.rometools.rome.io<br />
+com.rometools.rome.io.impl<br />
+java.lang<br />
+java.util<br />
+org.jdom2<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.util"></a><h3>org.apache.roller.util</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>10</td>
+<td>6</td>
+<td>25.0%</td>
+<td>38.0%</td>
+<td>38.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.util.DateUtil<br />
+</td>
+<td>org.apache.roller.util.PropertyExpander<br />
+org.apache.roller.util.RollerConstants<br />
+org.apache.roller.util.UUIDGenerator<br />
+</td>
+<td>org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.business.plugins.entry<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.core.security<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments<br />
+org.apache.roller.weblogger.ui.struts2.editor<br />
+org.apache.roller.weblogger.util.cache<br />
+</td>
+<td>java.lang<br />
+java.sql<br />
+java.text<br />
+java.util<br />
+java.util.regex<br />
+org.apache.commons.lang3<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger"></a><h3>org.apache.roller.weblogger</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>25</td>
+<td>2</td>
+<td>0.0%</td>
+<td>7.0%</td>
+<td>93.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td><i>None</i></td>
+<td>org.apache.roller.weblogger.WebloggerException<br />
+</td>
+<td>org.apache.roller.planet.business<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.business.pings<br />
+org.apache.roller.weblogger.business.plugins.entry<br />
+org.apache.roller.weblogger.business.runnable<br />
+org.apache.roller.weblogger.business.search<br />
+org.apache.roller.weblogger.business.search.lucene<br />
+org.apache.roller.weblogger.business.startup<br />
+org.apache.roller.weblogger.business.themes<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.core.filters<br />
+org.apache.roller.weblogger.ui.core.security<br />
+org.apache.roller.weblogger.ui.core.util.menu<br />
+org.apache.roller.weblogger.ui.rendering<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments<br />
+org.apache.roller.weblogger.ui.rendering.util<br />
+org.apache.roller.weblogger.ui.rendering.velocity<br />
+org.apache.roller.weblogger.ui.struts2.admin<br />
+org.apache.roller.weblogger.ui.struts2.ajax<br />
+org.apache.roller.weblogger.ui.struts2.core<br />
+org.apache.roller.weblogger.ui.struts2.editor<br />
+org.apache.roller.weblogger.util<br />
+</td>
+<td>java.lang<br />
+org.apache.roller<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business"></a><h3>org.apache.roller.weblogger.business</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>24</td>
+<td>19</td>
+<td>58.999996%</td>
+<td>44.0%</td>
+<td>3.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.BookmarkManager<br />
+org.apache.roller.weblogger.business.FileContentManager<br />
+org.apache.roller.weblogger.business.MediaFileManager<br />
+org.apache.roller.weblogger.business.OAuthManager<br />
+org.apache.roller.weblogger.business.PropertiesManager<br />
+org.apache.roller.weblogger.business.URLStrategy<br />
+org.apache.roller.weblogger.business.UserManager<br />
+org.apache.roller.weblogger.business.WeblogEntryManager<br />
+org.apache.roller.weblogger.business.WeblogManager<br />
+org.apache.roller.weblogger.business.Weblogger<br />
+org.apache.roller.weblogger.business.WebloggerImpl<br />
+org.apache.roller.weblogger.business.WebloggerProvider<br />
+org.apache.roller.weblogger.business.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.business.BootstrapException<br />
+org.apache.roller.weblogger.business.DatabaseProvider$ConfigurationType<br />
+org.apache.roller.weblogger.business.FileIOException<br />
+org.apache.roller.weblogger.business.FileNotFoundException<br />
+org.apache.roller.weblogger.business.FilePathException<br />
+org.apache.roller.weblogger.business.InitializationException<br />
+org.apache.roller.weblogger.business.MailProvider$ConfigurationType<br />
+org.apache.roller.weblogger.business.PreviewURLStrategy<br />
+org.apache.roller.weblogger.business.TestTask<br />
+</td>
+<td>org.apache.roller.planet.business<br />
+org.apache.roller.planet.business.jpa<br />
+org.apache.roller.planet.pojos<br />
+org.apache.roller.planet.tasks<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.business.runnable<br />
+org.apache.roller.weblogger.business.search<br />
+org.apache.roller.weblogger.business.search.lucene<br />
+org.apache.roller.weblogger.business.themes<br />
+org.apache.roller.weblogger.planet.ui<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.ui.core.filters<br />
+org.apache.roller.weblogger.ui.core.security<br />
+org.apache.roller.weblogger.ui.core.util.menu<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments<br />
+org.apache.roller.weblogger.ui.struts2.admin<br />
+org.apache.roller.weblogger.ui.struts2.ajax<br />
+org.apache.roller.weblogger.ui.struts2.core<br />
+org.apache.roller.weblogger.ui.struts2.editor<br />
+org.apache.roller.weblogger.ui.struts2.util<br />
+org.apache.roller.weblogger.webservices.xmlrpc<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+javax.xml.parsers<br />
+net.oauth<br />
+org.apache.commons.logging<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.planet.business.fetcher<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business.pings<br />
+org.apache.roller.weblogger.business.plugins<br />
+org.apache.roller.weblogger.business.runnable<br />
+org.apache.roller.weblogger.business.search<br />
+org.apache.roller.weblogger.business.themes<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.xmlrpc.util<br />
+org.xml.sax<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.jpa"></a><h3>org.apache.roller.weblogger.business.jpa</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>26</td>
+<td>17.0%</td>
+<td>93.0%</td>
+<td>10.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.jpa.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.business.jpa.JPAAutoPingManagerImpl<br />
+org.apache.roller.weblogger.business.jpa.JPABookmarkManagerImpl<br />
+org.apache.roller.weblogger.business.jpa.JPAPingTargetManagerImpl<br />
+org.apache.roller.weblogger.business.jpa.JPAWebloggerImpl<br />
+org.apache.roller.weblogger.business.jpa.JPAWebloggerModule<br />
+</td>
+<td>org.apache.roller.planet.business.jpa<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+</td>
+<td>com.google.inject<br />
+com.google.inject.binder<br />
+jakarta.persistence<br />
+java.io<br />
+java.lang<br />
+java.net<br />
+java.util<br />
+net.oauth<br />
+org.apache.commons.logging<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.planet.business.fetcher<br />
+org.apache.roller.planet.business.jpa<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.pings<br />
+org.apache.roller.weblogger.business.plugins<br />
+org.apache.roller.weblogger.business.runnable<br />
+org.apache.roller.weblogger.business.search<br />
+org.apache.roller.weblogger.business.search.lucene<br />
+org.apache.roller.weblogger.business.themes<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.planet.business<br />
+org.apache.roller.weblogger.pojos<br />
+org.jdom2<br />
+org.jdom2.input<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.pings"></a><h3>org.apache.roller.weblogger.business.pings</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>4</td>
+<td>100.0%</td>
+<td>67.0%</td>
+<td>67.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.pings.AutoPingManager<br />
+org.apache.roller.weblogger.business.pings.PingQueueManager<br />
+org.apache.roller.weblogger.business.pings.PingTargetManager<br />
+org.apache.roller.weblogger.business.pings.package-info<br />
+</td>
+<td><i>None</i></td>
+<td>org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+</td>
+<td>java.lang<br />
+java.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.plugins"></a><h3>org.apache.roller.weblogger.business.plugins</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>3</td>
+<td>3</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.plugins.PluginManager<br />
+org.apache.roller.weblogger.business.plugins.package-info<br />
+</td>
+<td><i>None</i></td>
+<td>org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+</td>
+<td>java.lang<br />
+java.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.plugins.comment"></a><h3>org.apache.roller.weblogger.business.plugins.comment</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>5</td>
+<td>67.0%</td>
+<td>100.0%</td>
+<td>67.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.plugins.comment.WeblogEntryCommentPlugin<br />
+org.apache.roller.weblogger.business.plugins.comment.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.business.plugins.comment.LinkMarkupPlugin<br />
+</td>
+<td><i>None</i></td>
+<td>java.lang<br />
+java.util.regex<br />
+org.apache.commons.logging<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.plugins.entry"></a><h3>org.apache.roller.weblogger.business.plugins.entry</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>7</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.plugins.entry.WeblogEntryPlugin<br />
+org.apache.roller.weblogger.business.plugins.entry.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.business.plugins.entry.EncodePreTagsPlugin<br />
+org.apache.roller.weblogger.business.plugins.entry.ObfuscateEmailPlugin<br />
+</td>
+<td><i>None</i></td>
+<td>java.lang<br />
+java.util.regex<br />
+org.apache.commons.logging<br />
+org.apache.commons.text<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.runnable"></a><h3>org.apache.roller.weblogger.business.runnable</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>5</td>
+<td>100.0%</td>
+<td>71.0%</td>
+<td>71.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.runnable.Job<br />
+org.apache.roller.weblogger.business.runnable.ThreadManager<br />
+</td>
+<td><i>None</i></td>
+<td>org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+</td>
+<td>java.lang<br />
+java.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.search"></a><h3>org.apache.roller.weblogger.business.search</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>5</td>
+<td>50.0%</td>
+<td>56.0%</td>
+<td>6.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.search.IndexManager<br />
+org.apache.roller.weblogger.business.search.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.business.search.SearchResultList<br />
+org.apache.roller.weblogger.business.search.SearchResultMap<br />
+</td>
+<td>org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.business.search.lucene<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+</td>
+<td>java.lang<br />
+java.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.search.lucene"></a><h3>org.apache.roller.weblogger.business.search.lucene</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>19</td>
+<td>40.0%</td>
+<td>95.0%</td>
+<td>35.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.search.lucene.IndexOperation<br />
+org.apache.roller.weblogger.business.search.lucene.ReadFromIndexOperation<br />
+org.apache.roller.weblogger.business.search.lucene.WriteToIndexOperation<br />
+org.apache.roller.weblogger.business.search.lucene.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.business.search.lucene.AddEntryOperation<br />
+org.apache.roller.weblogger.business.search.lucene.FieldConstants<br />
+org.apache.roller.weblogger.business.search.lucene.IndexUtil<br />
+org.apache.roller.weblogger.business.search.lucene.ReIndexEntryOperation<br />
+org.apache.roller.weblogger.business.search.lucene.RemoveEntryOperation<br />
+org.apache.roller.weblogger.business.search.lucene.SearchOperation<br />
+</td>
+<td>org.apache.roller.weblogger.business.jpa<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.sql<br />
+java.util<br />
+java.util.concurrent.locks<br />
+org.apache.commons.logging<br />
+org.apache.lucene.analysis<br />
+org.apache.lucene.analysis.miscellaneous<br />
+org.apache.lucene.analysis.tokenattributes<br />
+org.apache.lucene.document<br />
+org.apache.lucene.index<br />
+org.apache.lucene.queryparser.classic<br />
+org.apache.lucene.search<br />
+org.apache.lucene.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.search<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.startup"></a><h3>org.apache.roller.weblogger.business.startup</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>4</td>
+<td>67.0%</td>
+<td>67.0%</td>
+<td>33.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.startup.DatabaseScriptProvider<br />
+org.apache.roller.weblogger.business.startup.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.business.startup.StartupException<br />
+</td>
+<td>org.apache.roller.planet.tasks<br />
+org.apache.roller.weblogger.ui.struts2.core<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+org.apache.roller.weblogger<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.business.themes"></a><h3>org.apache.roller.weblogger.business.themes</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>7</td>
+<td>25.0%</td>
+<td>64.0%</td>
+<td>11.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.themes.SharedTheme<br />
+org.apache.roller.weblogger.business.themes.ThemeManager<br />
+org.apache.roller.weblogger.business.themes.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.business.themes.SharedThemeResourceFromDir<br />
+org.apache.roller.weblogger.business.themes.ThemeInitializationException<br />
+org.apache.roller.weblogger.business.themes.ThemeMetadata<br />
+org.apache.roller.weblogger.business.themes.ThemeMetadataTemplate<br />
+org.apache.roller.weblogger.business.themes.ThemeMetadataTemplateRendition<br />
+org.apache.roller.weblogger.business.themes.ThemeNotFoundException<br />
+org.apache.roller.weblogger.business.themes.ThemeParsingException<br />
+org.apache.roller.weblogger.business.themes.WeblogCustomTheme<br />
+org.apache.roller.weblogger.business.themes.WeblogSharedTheme<br />
+</td>
+<td>org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.struts2.core<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+org.apache.commons.logging<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.config"></a><h3>org.apache.roller.weblogger.config</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>17</td>
+<td>1</td>
+<td>100.0%</td>
+<td>6.0%</td>
+<td>6.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.config.package-info<br />
+</td>
+<td><i>None</i></td>
+<td>org.apache.roller.planet.business<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.business.search.lucene<br />
+org.apache.roller.weblogger.planet.business<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.ui.core.util.menu<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments<br />
+org.apache.roller.weblogger.ui.rendering.servlets<br />
+org.apache.roller.weblogger.ui.struts2.admin<br />
+org.apache.roller.weblogger.ui.struts2.core<br />
+org.apache.roller.weblogger.ui.struts2.editor<br />
+org.apache.roller.weblogger.ui.struts2.util<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.webservices.xmlrpc<br />
+</td>
+<td>java.lang<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.config.runtime"></a><h3>org.apache.roller.weblogger.config.runtime</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>5</td>
+<td>25.0%</td>
+<td>100.0%</td>
+<td>25.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.config.runtime.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.config.runtime.ConfigDef<br />
+org.apache.roller.weblogger.config.runtime.RuntimeConfigDefs<br />
+org.apache.roller.weblogger.config.runtime.RuntimeConfigDefsParser<br />
+</td>
+<td><i>None</i></td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+org.jdom2<br />
+org.jdom2.input<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.planet.business"></a><h3>org.apache.roller.weblogger.planet.business</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>3</td>
+<td>0.0%</td>
+<td>75.0%</td>
+<td>25.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td><i>None</i></td>
+<td>org.apache.roller.weblogger.planet.business.PlanetURLStrategy<br />
+</td>
+<td>org.apache.roller.weblogger.business.jpa<br />
+</td>
+<td>java.lang<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.weblogger.config<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.planet.ui"></a><h3>org.apache.roller.weblogger.planet.ui</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>6</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>100.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.planet.ui.PlanetUIAction<br />
+org.apache.roller.weblogger.planet.ui.package-info<br />
+</td>
+<td><i>None</i></td>
+<td><i>None</i></td>
+<td>java.lang<br />
+org.apache.commons.logging<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.ui.struts2.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.pojos"></a><h3>org.apache.roller.weblogger.pojos</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>30</td>
+<td>13</td>
+<td>18.0%</td>
+<td>30.000002%</td>
+<td>52.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.pojos.ObjectPermission<br />
+org.apache.roller.weblogger.pojos.Resource<br />
+org.apache.roller.weblogger.pojos.Template<br />
+org.apache.roller.weblogger.pojos.TemplateRendition<br />
+org.apache.roller.weblogger.pojos.Theme<br />
+org.apache.roller.weblogger.pojos.ThemeResource<br />
+org.apache.roller.weblogger.pojos.ThemeTemplate<br />
+org.apache.roller.weblogger.pojos.WeblogTheme<br />
+org.apache.roller.weblogger.pojos.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.pojos.AutoPing<br />
+org.apache.roller.weblogger.pojos.CommentSearchCriteria<br />
+org.apache.roller.weblogger.pojos.FileContent<br />
+org.apache.roller.weblogger.pojos.MediaFileComparator<br />
+org.apache.roller.weblogger.pojos.MediaFileComparator$MediaFileComparatorType<br />
+org.apache.roller.weblogger.pojos.MediaFileDirectory<br />
+org.apache.roller.weblogger.pojos.MediaFileDirectoryComparator<br />
+org.apache.roller.weblogger.pojos.MediaFileDirectoryComparator$DirectoryComparatorType<br />
+org.apache.roller.weblogger.pojos.MediaFileFilter<br />
+org.apache.roller.weblogger.pojos.MediaFileFilter$MediaFileOrder<br />
+org.apache.roller.weblogger.pojos.MediaFileFilter$SizeFilterType<br />
+org.apache.roller.weblogger.pojos.MediaFileType<br />
+org.apache.roller.weblogger.pojos.OAuthAccessorRecord<br />
+org.apache.roller.weblogger.pojos.OAuthConsumerRecord<br />
+org.apache.roller.weblogger.pojos.PingQueueEntry<br />
+org.apache.roller.weblogger.pojos.PingTarget<br />
+org.apache.roller.weblogger.pojos.StatCount<br />
+org.apache.roller.weblogger.pojos.StatCountCountComparator<br />
+org.apache.roller.weblogger.pojos.StaticTemplate<br />
+org.apache.roller.weblogger.pojos.StaticThemeTemplate<br />
+org.apache.roller.weblogger.pojos.TagStatComparator<br />
+org.apache.roller.weblogger.pojos.TagStatCountComparator<br />
+org.apache.roller.weblogger.pojos.TaskLock<br />
+org.apache.roller.weblogger.pojos.TemplateRendition$RenditionType<br />
+org.apache.roller.weblogger.pojos.TemplateRendition$TemplateLanguage<br />
+org.apache.roller.weblogger.pojos.ThemeTemplate$ComponentType<br />
+org.apache.roller.weblogger.pojos.User<br />
+org.apache.roller.weblogger.pojos.UserRole<br />
+org.apache.roller.weblogger.pojos.WeblogBookmark<br />
+org.apache.roller.weblogger.pojos.WeblogBookmarkFolder<br />
+org.apache.roller.weblogger.pojos.WeblogEntry$PubStatus<br />
+org.apache.roller.weblogger.pojos.WeblogEntryAttribute<br />
+org.apache.roller.weblogger.pojos.WeblogEntryComment<br />
+org.apache.roller.weblogger.pojos.WeblogEntryComment$ApprovalStatus<br />
+org.apache.roller.weblogger.pojos.WeblogEntrySearchCriteria<br />
+org.apache.roller.weblogger.pojos.WeblogEntrySearchCriteria$SortBy<br />
+org.apache.roller.weblogger.pojos.WeblogEntrySearchCriteria$SortOrder<br />
+org.apache.roller.weblogger.pojos.WeblogEntryTagAggregate<br />
+org.apache.roller.weblogger.pojos.WeblogEntryTagComparator<br />
+org.apache.roller.weblogger.pojos.WeblogEntryWrapperComparator<br />
+org.apache.roller.weblogger.pojos.WeblogHitCount<br />
+</td>
+<td>org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.business.pings<br />
+org.apache.roller.weblogger.business.plugins<br />
+org.apache.roller.weblogger.business.plugins.comment<br />
+org.apache.roller.weblogger.business.plugins.entry<br />
+org.apache.roller.weblogger.business.runnable<br />
+org.apache.roller.weblogger.business.search<br />
+org.apache.roller.weblogger.business.search.lucene<br />
+org.apache.roller.weblogger.business.themes<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.ui.core<br />
+org.apache.roller.weblogger.ui.core.filters<br />
+org.apache.roller.weblogger.ui.core.security<br />
+org.apache.roller.weblogger.ui.core.util.menu<br />
+org.apache.roller.weblogger.ui.rendering<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments<br />
+org.apache.roller.weblogger.ui.rendering.util<br />
+org.apache.roller.weblogger.ui.rendering.velocity<br />
+org.apache.roller.weblogger.ui.struts2.admin<br />
+org.apache.roller.weblogger.ui.struts2.ajax<br />
+org.apache.roller.weblogger.ui.struts2.core<br />
+org.apache.roller.weblogger.ui.struts2.editor<br />
+org.apache.roller.weblogger.ui.struts2.util<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.util.cache<br />
+org.apache.roller.weblogger.webservices.atomprotocol<br />
+org.apache.roller.weblogger.webservices.xmlrpc<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.sql<br />
+java.util<br />
+org.apache.commons.lang3.builder<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.themes<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.ui.core<br />
+org.apache.roller.weblogger.util<br />
+org.springframework.security.crypto.password<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.pojos.wrapper"></a><h3>org.apache.roller.weblogger.pojos.wrapper</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>9</td>
+<td>14.0%</td>
+<td>69.0%</td>
+<td>16.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.pojos.wrapper.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.pojos.wrapper.ThemeTemplateWrapper<br />
+org.apache.roller.weblogger.pojos.wrapper.UserWrapper<br />
+org.apache.roller.weblogger.pojos.wrapper.WeblogBookmarkWrapper<br />
+org.apache.roller.weblogger.pojos.wrapper.WeblogEntryAttributeWrapper<br />
+org.apache.roller.weblogger.pojos.wrapper.WeblogEntryCommentWrapper<br />
+org.apache.roller.weblogger.pojos.wrapper.WeblogEntryTagWrapper<br />
+</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.rendering.util<br />
+</td>
+<td>java.lang<br />
+java.sql<br />
+java.util<br />
+org.apache.commons.text<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.plugins<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.core"></a><h3>org.apache.roller.weblogger.ui.core</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>3</td>
+<td>4</td>
+<td>0.0%</td>
+<td>57.0%</td>
+<td>43.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td><i>None</i></td>
+<td>org.apache.roller.weblogger.ui.core.CmaRollerContext<br />
+org.apache.roller.weblogger.ui.core.RollerLoginSessionManager$SessionCacheHandler<br />
+org.apache.roller.weblogger.ui.core.RollerLoginSessionManager$SingletonHolder<br />
+</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.core.filters<br />
+org.apache.roller.weblogger.webservices.xmlrpc<br />
+</td>
+<td>java.lang<br />
+javax.servlet<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util.cache<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.core.filters"></a><h3>org.apache.roller.weblogger.ui.core.filters</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>12</td>
+<td>25.0%</td>
+<td>100.0%</td>
+<td>25.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.core.filters.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.core.filters.CharEncodingFilter<br />
+org.apache.roller.weblogger.ui.core.filters.LoadSaltFilter<br />
+org.apache.roller.weblogger.ui.core.filters.RoleAssignmentRequestWrapper<br />
+</td>
+<td><i>None</i></td>
+<td>java.io<br />
+java.lang<br />
+java.security<br />
+javax.servlet<br />
+javax.servlet.http<br />
+org.apache.commons.lang3<br />
+org.apache.commons.logging<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.core<br />
+org.apache.roller.weblogger.ui.rendering.util.cache<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.core.plugins"></a><h3>org.apache.roller.weblogger.ui.core.plugins</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>2</td>
+<td>60.000004%</td>
+<td>100.0%</td>
+<td>60.000004%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.core.plugins.UIPluginManager<br />
+org.apache.roller.weblogger.ui.core.plugins.WeblogEntryEditor<br />
+org.apache.roller.weblogger.ui.core.plugins.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.core.plugins.Summernote<br />
+org.apache.roller.weblogger.ui.core.plugins.TextEditor<br />
+</td>
+<td><i>None</i></td>
+<td>java.lang<br />
+java.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.core.security"></a><h3>org.apache.roller.weblogger.ui.core.security</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>11</td>
+<td>75.0%</td>
+<td>100.0%</td>
+<td>75.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.core.security.AutoProvision<br />
+org.apache.roller.weblogger.ui.core.security.RollerUserDetails<br />
+org.apache.roller.weblogger.ui.core.security.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.core.security.BasicUserAutoProvision<br />
+</td>
+<td><i>None</i></td>
+<td>java.lang<br />
+java.util<br />
+javax.servlet.http<br />
+org.apache.commons.logging<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.pojos<br />
+org.springframework.security.core<br />
+org.springframework.security.core.context<br />
+org.springframework.security.core.userdetails<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.core.tags.calendar"></a><h3>org.apache.roller.weblogger.ui.core.tags.calendar</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>2</td>
+<td>100.0%</td>
+<td>67.0%</td>
+<td>67.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.core.tags.calendar.CalendarModel<br />
+org.apache.roller.weblogger.ui.core.tags.calendar.package-info<br />
+</td>
+<td><i>None</i></td>
+<td>org.apache.roller.weblogger.ui.rendering.model<br />
+</td>
+<td>java.lang<br />
+java.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.core.util.menu"></a><h3>org.apache.roller.weblogger.ui.core.util.menu</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>11</td>
+<td>12.0%</td>
+<td>85.0%</td>
+<td>3.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.core.util.menu.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.core.util.menu.Menu<br />
+org.apache.roller.weblogger.ui.core.util.menu.MenuHelper<br />
+org.apache.roller.weblogger.ui.core.util.menu.MenuTab<br />
+org.apache.roller.weblogger.ui.core.util.menu.MenuTabItem<br />
+org.apache.roller.weblogger.ui.core.util.menu.ParsedMenu<br />
+org.apache.roller.weblogger.ui.core.util.menu.ParsedTab<br />
+org.apache.roller.weblogger.ui.core.util.menu.ParsedTabItem<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.struts2.util<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+org.apache.commons.logging<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.jdom2<br />
+org.jdom2.input<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering"></a><h3>org.apache.roller.weblogger.ui.rendering</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>8</td>
+<td>80.0%</td>
+<td>89.0%</td>
+<td>69.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.Renderer<br />
+org.apache.roller.weblogger.ui.rendering.RendererFactory<br />
+org.apache.roller.weblogger.ui.rendering.RequestMapper<br />
+org.apache.roller.weblogger.ui.rendering.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.RenderingException<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.velocity<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+javax.servlet<br />
+javax.servlet.http<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.rendering.mobile<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.filters"></a><h3>org.apache.roller.weblogger.ui.rendering.filters</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>6</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.filters.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.filters.DeviceResolverRequestFilter<br />
+</td>
+<td><i>None</i></td>
+<td>java.io<br />
+java.lang<br />
+javax.servlet<br />
+javax.servlet.http<br />
+org.apache.roller.weblogger.ui.rendering.util.mobile<br />
+org.springframework.web.filter<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.mobile"></a><h3>org.apache.roller.weblogger.ui.rendering.mobile</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>3</td>
+<td>3</td>
+<td>0.0%</td>
+<td>50.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td><i>None</i></td>
+<td>org.apache.roller.weblogger.ui.rendering.mobile.MobileDeviceRepository<br />
+org.apache.roller.weblogger.ui.rendering.mobile.MobileDeviceRepository$DeviceType<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.velocity<br />
+</td>
+<td>java.lang<br />
+java.util.regex<br />
+javax.servlet.http<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.model"></a><h3>org.apache.roller.weblogger.ui.rendering.model</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>25</td>
+<td>9.0%</td>
+<td>100.0%</td>
+<td>9.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.model.Model<br />
+org.apache.roller.weblogger.ui.rendering.model.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.model.CalendarModel<br />
+org.apache.roller.weblogger.ui.rendering.model.ConfigModel<br />
+org.apache.roller.weblogger.ui.rendering.model.FeedModel<br />
+org.apache.roller.weblogger.ui.rendering.model.FeedModel$FeedCommentsPager<br />
+org.apache.roller.weblogger.ui.rendering.model.FeedModel$FeedEntriesPager<br />
+org.apache.roller.weblogger.ui.rendering.model.FeedModel$FeedFilesPager<br />
+org.apache.roller.weblogger.ui.rendering.model.MenuModel<br />
+org.apache.roller.weblogger.ui.rendering.model.MessageModel<br />
+org.apache.roller.weblogger.ui.rendering.model.PageModel<br />
+org.apache.roller.weblogger.ui.rendering.model.PlanetModel<br />
+org.apache.roller.weblogger.ui.rendering.model.PreviewPageModel<br />
+org.apache.roller.weblogger.ui.rendering.model.PreviewURLModel<br />
+org.apache.roller.weblogger.ui.rendering.model.SearchResultsFeedModel<br />
+org.apache.roller.weblogger.ui.rendering.model.SearchResultsModel<br />
+org.apache.roller.weblogger.ui.rendering.model.SiteModel<br />
+org.apache.roller.weblogger.ui.rendering.model.URLModel$CommentFeedURLS<br />
+org.apache.roller.weblogger.ui.rendering.model.URLModel$EntryFeedURLS<br />
+org.apache.roller.weblogger.ui.rendering.model.URLModel$FeedURLS<br />
+org.apache.roller.weblogger.ui.rendering.model.URLModel$MediaFileFeedURLS<br />
+org.apache.roller.weblogger.ui.rendering.model.UtilitiesModel<br />
+</td>
+<td><i>None</i></td>
+<td>java.lang<br />
+java.sql<br />
+java.text<br />
+java.util<br />
+java.util.regex<br />
+javax.servlet.jsp<br />
+org.apache.commons.lang3<br />
+org.apache.commons.logging<br />
+org.apache.commons.text<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.planet.pojos<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.business.search<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.ui.core.tags.calendar<br />
+org.apache.roller.weblogger.ui.core.util.menu<br />
+org.apache.roller.weblogger.ui.rendering.mobile<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.rendering.util<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.pagers"></a><h3>org.apache.roller.weblogger.ui.rendering.pagers</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>16</td>
+<td>27.000002%</td>
+<td>94.0%</td>
+<td>21.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.pagers.AbstractWeblogEntriesPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.Pager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.WeblogEntriesPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.pagers.CommentsPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.MediaFilesPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.PlanetEntriesPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.SearchResultsFeedPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.SearchResultsPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.WeblogEntriesDayPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.WeblogEntriesLatestPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.WeblogEntriesListPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.WeblogEntriesMonthPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.WeblogEntriesPermalinkPager<br />
+org.apache.roller.weblogger.ui.rendering.pagers.WeblogEntriesPreviewPager<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.model<br />
+</td>
+<td>java.lang<br />
+java.sql<br />
+java.text<br />
+java.util<br />
+org.apache.commons.lang3<br />
+org.apache.commons.logging<br />
+org.apache.roller.planet.business<br />
+org.apache.roller.planet.pojos<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.ui.rendering.util<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.plugins.comments"></a><h3>org.apache.roller.weblogger.ui.rendering.plugins.comments</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>14</td>
+<td>30.000002%</td>
+<td>93.0%</td>
+<td>23.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.plugins.comments.CommentAuthenticator<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments.CommentValidator<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.plugins.comments.BannedwordslistCommentValidator<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments.CommentAuthenticatorUtils<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments.DefaultCommentAuthenticator<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments.ExcessLinksCommentValidator<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments.ExcessSizeCommentValidator<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments.MathCommentAuthenticator<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments.TrackbackLinkbackCommentValidator<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.servlets<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.net<br />
+java.security<br />
+java.util<br />
+java.util.regex<br />
+javax.servlet.http<br />
+org.apache.commons.logging<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.servlets"></a><h3>org.apache.roller.weblogger.ui.rendering.servlets</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>8</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.servlets.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.servlets.CommentAuthenticatorServlet<br />
+</td>
+<td><i>None</i></td>
+<td>java.io<br />
+java.lang<br />
+javax.servlet<br />
+javax.servlet.http<br />
+org.apache.commons.logging<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.util"></a><h3>org.apache.roller.weblogger.ui.rendering.util</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>3</td>
+<td>5</td>
+<td>33.0%</td>
+<td>62.0%</td>
+<td>4.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.util.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.util.InvalidRequestException<br />
+org.apache.roller.weblogger.ui.rendering.util.WeblogEntryCommentForm<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.struts2.ajax<br />
+</td>
+<td>java.lang<br />
+org.apache.commons.text<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.util.cache"></a><h3>org.apache.roller.weblogger.ui.rendering.util.cache</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>1</td>
+<td>100.0%</td>
+<td>50.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.util.cache.package-info<br />
+</td>
+<td><i>None</i></td>
+<td>org.apache.roller.weblogger.ui.core.filters<br />
+</td>
+<td>java.lang<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.util.mobile"></a><h3>org.apache.roller.weblogger.ui.rendering.util.mobile</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>1</td>
+<td>4</td>
+<td>25.0%</td>
+<td>80.0%</td>
+<td>5.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.util.mobile.Device<br />
+org.apache.roller.weblogger.ui.rendering.util.mobile.DeviceResolver<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.util.mobile.DeviceType<br />
+org.apache.roller.weblogger.ui.rendering.util.mobile.DeviceUtils<br />
+org.apache.roller.weblogger.ui.rendering.util.mobile.LiteDevice<br />
+org.apache.roller.weblogger.ui.rendering.util.mobile.LiteDeviceResolver<br />
+org.apache.roller.weblogger.ui.rendering.util.mobile.MobileDeviceRepository<br />
+org.apache.roller.weblogger.ui.rendering.util.mobile.MobileDeviceRepository$DeviceType<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.filters<br />
+</td>
+<td>java.lang<br />
+java.util<br />
+javax.servlet.http<br />
+org.springframework.web.context.request<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.rendering.velocity"></a><h3>org.apache.roller.weblogger.ui.rendering.velocity</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>7</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.velocity.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.rendering.velocity.VelocityRendererFactory<br />
+</td>
+<td><i>None</i></td>
+<td>java.lang<br />
+org.apache.commons.logging<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.rendering<br />
+org.apache.roller.weblogger.ui.rendering.mobile<br />
+org.apache.velocity.exception<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.struts2.admin"></a><h3>org.apache.roller.weblogger.ui.struts2.admin</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>9</td>
+<td>20.0%</td>
+<td>100.0%</td>
+<td>20.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.struts2.admin.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.struts2.admin.CacheInfo<br />
+org.apache.roller.weblogger.ui.struts2.admin.CreateUserBean<br />
+org.apache.roller.weblogger.ui.struts2.admin.PingTargetBean<br />
+org.apache.roller.weblogger.ui.struts2.admin.UserAdmin<br />
+</td>
+<td><i>None</i></td>
+<td>com.opensymphony.xwork2<br />
+java.lang<br />
+java.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.struts2.util<br />
+org.apache.roller.weblogger.util.cache<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.struts2.ajax"></a><h3>org.apache.roller.weblogger.ui.struts2.ajax</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>9</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.struts2.ajax.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.struts2.ajax.UserDataServlet<br />
+</td>
+<td><i>None</i></td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+javax.servlet<br />
+javax.servlet.http<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.rendering.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.struts2.core"></a><h3>org.apache.roller.weblogger.ui.struts2.core</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>20</td>
+<td>11.0%</td>
+<td>100.0%</td>
+<td>11.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.struts2.core.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.struts2.core.CreateWeblog<br />
+org.apache.roller.weblogger.ui.struts2.core.CreateWeblogBean<br />
+org.apache.roller.weblogger.ui.struts2.core.Install<br />
+org.apache.roller.weblogger.ui.struts2.core.Login<br />
+org.apache.roller.weblogger.ui.struts2.core.OAuthAuthorize<br />
+org.apache.roller.weblogger.ui.struts2.core.OAuthKeys<br />
+org.apache.roller.weblogger.ui.struts2.core.ProfileBean<br />
+org.apache.roller.weblogger.ui.struts2.core.Setup<br />
+</td>
+<td><i>None</i></td>
+<td>com.opensymphony.xwork2<br />
+java.io<br />
+java.lang<br />
+java.sql<br />
+java.util<br />
+javax.servlet.http<br />
+net.oauth<br />
+org.apache.commons.codec.digest<br />
+org.apache.commons.lang3<br />
+org.apache.commons.logging<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.startup<br />
+org.apache.roller.weblogger.business.themes<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.struts2.util<br />
+org.apache.roller.weblogger.util<br />
+org.apache.struts2.interceptor<br />
+org.springframework.beans<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.struts2.editor"></a><h3>org.apache.roller.weblogger.ui.struts2.editor</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>18</td>
+<td>8.0%</td>
+<td>100.0%</td>
+<td>8.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.struts2.editor.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.struts2.editor.BookmarkBean<br />
+org.apache.roller.weblogger.ui.struts2.editor.Categories<br />
+org.apache.roller.weblogger.ui.struts2.editor.CategoryBean<br />
+org.apache.roller.weblogger.ui.struts2.editor.CategoryEdit<br />
+org.apache.roller.weblogger.ui.struts2.editor.EntriesBean<br />
+org.apache.roller.weblogger.ui.struts2.editor.FolderBean<br />
+org.apache.roller.weblogger.ui.struts2.editor.FolderEdit<br />
+org.apache.roller.weblogger.ui.struts2.editor.MediaFileAdd<br />
+org.apache.roller.weblogger.ui.struts2.editor.MediaFileBean<br />
+org.apache.roller.weblogger.ui.struts2.editor.MediaFileImageDim<br />
+org.apache.roller.weblogger.ui.struts2.editor.MediaFileSearchBean<br />
+</td>
+<td><i>None</i></td>
+<td>com.opensymphony.xwork2<br />
+java.io<br />
+java.lang<br />
+java.text<br />
+java.util<br />
+javax.servlet.http<br />
+org.apache.commons.lang3<br />
+org.apache.commons.logging<br />
+org.apache.commons.text<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.struts2.util<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.util.cache<br />
+org.apache.struts2.interceptor<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.struts2.pagers"></a><h3>org.apache.roller.weblogger.ui.struts2.pagers</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>2</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.struts2.pagers.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.struts2.pagers.MediaFilePager<br />
+</td>
+<td><i>None</i></td>
+<td>java.lang<br />
+java.util<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.struts2.util"></a><h3>org.apache.roller.weblogger.ui.struts2.util</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>13</td>
+<td>44.0%</td>
+<td>76.0%</td>
+<td>21.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.struts2.util.UIAction<br />
+org.apache.roller.weblogger.ui.struts2.util.UIActionPreparable<br />
+org.apache.roller.weblogger.ui.struts2.util.UISecurityEnforced<br />
+org.apache.roller.weblogger.ui.struts2.util.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.struts2.util.KeyValueObject<br />
+org.apache.roller.weblogger.ui.struts2.util.UIActionPrepareInterceptor<br />
+org.apache.roller.weblogger.ui.struts2.util.UISecurityInterceptor<br />
+org.apache.roller.weblogger.ui.struts2.util.UIUtils<br />
+org.apache.roller.weblogger.ui.struts2.util.UIUtils$LocaleComparator<br />
+</td>
+<td>org.apache.roller.weblogger.planet.ui<br />
+org.apache.roller.weblogger.ui.struts2.admin<br />
+org.apache.roller.weblogger.ui.struts2.core<br />
+org.apache.roller.weblogger.ui.struts2.editor<br />
+</td>
+<td>com.opensymphony.xwork2<br />
+com.opensymphony.xwork2.interceptor<br />
+java.lang<br />
+java.text<br />
+java.util<br />
+java.util.stream<br />
+org.apache.commons.logging<br />
+org.apache.commons.text<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.core.util.menu<br />
+org.apache.struts2.interceptor<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.ui.tags"></a><h3>org.apache.roller.weblogger.ui.tags</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>6</td>
+<td>67.0%</td>
+<td>100.0%</td>
+<td>67.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.tags.StringTagSupport<br />
+org.apache.roller.weblogger.ui.tags.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.ui.tags.WordWrapTag<br />
+</td>
+<td><i>None</i></td>
+<td>java.io<br />
+java.lang<br />
+javax.servlet.jsp<br />
+javax.servlet.jsp.tagext<br />
+org.apache.commons.lang3<br />
+org.apache.commons.lang3.math<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.util"></a><h3>org.apache.roller.weblogger.util</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>12</td>
+<td>14</td>
+<td>10.0%</td>
+<td>54.000004%</td>
+<td>37.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.util.LRUCache2$Environment<br />
+org.apache.roller.weblogger.util.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.util.BannedwordslistChecker<br />
+org.apache.roller.weblogger.util.GenericThrottle$ClientInfo<br />
+org.apache.roller.weblogger.util.HTMLSanitizer$SanitizeResult<br />
+org.apache.roller.weblogger.util.I18nUtils<br />
+org.apache.roller.weblogger.util.IPBanList$ModifiedFile<br />
+org.apache.roller.weblogger.util.LRUCache2<br />
+org.apache.roller.weblogger.util.LRUCache2$CacheEntry<br />
+org.apache.roller.weblogger.util.LRUCache2$DefaultEnvironment<br />
+org.apache.roller.weblogger.util.LRUCache2$LRULinkedHashMap<br />
+org.apache.roller.weblogger.util.LinkbackExtractor$1<br />
+org.apache.roller.weblogger.util.MailUtil$MailingException<br />
+org.apache.roller.weblogger.util.MediacastException<br />
+org.apache.roller.weblogger.util.MediacastResource<br />
+org.apache.roller.weblogger.util.Reflection<br />
+org.apache.roller.weblogger.util.RollerMessages<br />
+org.apache.roller.weblogger.util.RollerMessages$RollerMessage<br />
+org.apache.roller.weblogger.util.TrackbackNotAllowedException<br />
+org.apache.roller.weblogger.util.URLUtilities<br />
+org.apache.roller.weblogger.util.WSSEUtilities<br />
+</td>
+<td>org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.business.plugins.comment<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.ui.core.util.menu<br />
+org.apache.roller.weblogger.ui.rendering.model<br />
+org.apache.roller.weblogger.ui.rendering.pagers<br />
+org.apache.roller.weblogger.ui.rendering.plugins.comments<br />
+org.apache.roller.weblogger.ui.rendering.servlets<br />
+org.apache.roller.weblogger.ui.struts2.core<br />
+org.apache.roller.weblogger.ui.struts2.editor<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.lang.reflect<br />
+java.net<br />
+java.nio.charset<br />
+java.security<br />
+java.text<br />
+java.util<br />
+javax.swing.text.html<br />
+org.apache.commons.codec.binary<br />
+org.apache.commons.lang3<br />
+org.apache.roller.weblogger<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.util.cache"></a><h3>org.apache.roller.weblogger.util.cache</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>5</td>
+<td>50.0%</td>
+<td>56.0%</td>
+<td>6.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.util.cache.Cache<br />
+org.apache.roller.weblogger.util.cache.CacheFactory<br />
+org.apache.roller.weblogger.util.cache.CacheHandler<br />
+org.apache.roller.weblogger.util.cache.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.util.cache.ExpiringCacheEntry<br />
+org.apache.roller.weblogger.util.cache.LRUCacheImpl<br />
+org.apache.roller.weblogger.util.cache.LRUCacheImpl$LRULinkedHashMap<br />
+org.apache.roller.weblogger.util.cache.LazyExpiringCacheEntry<br />
+</td>
+<td>org.apache.roller.weblogger.ui.core<br />
+org.apache.roller.weblogger.ui.struts2.admin<br />
+org.apache.roller.weblogger.ui.struts2.editor<br />
+org.apache.roller.weblogger.webservices.xmlrpc<br />
+</td>
+<td>java.io<br />
+java.lang<br />
+java.util<br />
+org.apache.roller.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.webservices.atomprotocol"></a><h3>org.apache.roller.weblogger.webservices.atomprotocol</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>5</td>
+<td>33.0%</td>
+<td>100.0%</td>
+<td>33.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.webservices.atomprotocol.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.webservices.atomprotocol.MediaCollection$1<br />
+org.apache.roller.weblogger.webservices.atomprotocol.RollerAtomHandlerFactory<br />
+</td>
+<td><i>None</i></td>
+<td>com.rometools.propono.atom.server<br />
+java.lang<br />
+java.util<br />
+javax.servlet.http<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.webservices.opensearch"></a><h3>org.apache.roller.weblogger.webservices.opensearch</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>1</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>100.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.webservices.opensearch.package-info<br />
+</td>
+<td><i>None</i></td>
+<td><i>None</i></td>
+<td>java.lang<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.webservices.tagdata"></a><h3>org.apache.roller.weblogger.webservices.tagdata</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>1</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>100.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.webservices.tagdata.package-info<br />
+</td>
+<td><i>None</i></td>
+<td><i>None</i></td>
+<td>java.lang<br />
+</td>
+</tr>
+</table>
+<a name="org.apache.roller.weblogger.webservices.xmlrpc"></a><h3>org.apache.roller.weblogger.webservices.xmlrpc</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>11</td>
+<td>50.0%</td>
+<td>100.0%</td>
+<td>50.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.webservices.xmlrpc.package-info<br />
+</td>
+<td>org.apache.roller.weblogger.webservices.xmlrpc.BaseAPIHandler<br />
+</td>
+<td><i>None</i></td>
+<td>java.io<br />
+java.lang<br />
+org.apache.commons.logging<br />
+org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.config<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.ui.core<br />
+org.apache.roller.weblogger.util.cache<br />
+org.apache.xmlrpc<br />
+org.apache.xmlrpc.common<br />
+org.springframework.security.crypto.password<br />
+</td>
+</tr>
+</table>
+<a name="cycles"></a><h2>Cycles</h2>
+[ <a href="#summary">summary</a> ] [ <a href="#packages">packages</a> ] [ <a href="#cycles">cycles</a> ] [ <a href="#explanations">explanations</a> ] <br />
+<br />
+<table class="bodyTable"><tr class="a"><th>Package</th>
+<th>Package Dependencies</th>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.business</td>
+<td>org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.planet.business.fetcher</td>
+<td>org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.business.jpa</td>
+<td>org.apache.roller.weblogger.business.jpa<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.planet.business.updater</td>
+<td>org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.planet.pojos</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.planet.tasks</td>
+<td>org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.business.jpa</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.pings</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.business.plugins</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.plugins.comment</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.business.plugins.entry</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.runnable</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.business.search</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.business.search.lucene</td>
+<td>org.apache.roller.weblogger.business.search<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.business.themes</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.planet.business</td>
+<td>org.apache.roller.planet.business<br />
+org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.planet.ui</td>
+<td>org.apache.roller.planet.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.pojos</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.pojos.wrapper</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.core</td>
+<td>org.apache.roller.weblogger.util.cache<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.ui.core.filters</td>
+<td>org.apache.roller.weblogger.business<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.core.security</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.ui.core.util.menu</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.ui.rendering.model</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.pagers</td>
+<td>org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.ui.rendering.plugins.comments</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.servlets</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.ui.rendering.util</td>
+<td>org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.rendering.velocity</td>
+<td>org.apache.roller.weblogger.ui.rendering<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.ui.struts2.admin</td>
+<td>org.apache.roller.weblogger.ui.struts2.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.struts2.ajax</td>
+<td>org.apache.roller.weblogger.ui.rendering.util<br />
+org.apache.roller.weblogger.pojos.wrapper<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.ui.struts2.core</td>
+<td>org.apache.roller.weblogger.ui.struts2.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.ui.struts2.editor</td>
+<td>org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.ui.struts2.util</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.util</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.util.cache</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="b"><td>org.apache.roller.weblogger.webservices.atomprotocol</td>
+<td>org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+<tr class="a"><td>org.apache.roller.weblogger.webservices.xmlrpc</td>
+<td>org.apache.roller.weblogger.util.cache<br />
+org.apache.roller.weblogger.pojos<br />
+org.apache.roller.weblogger.util<br />
+org.apache.roller.weblogger.pojos<br />
+</td>
+</tr>
+</table>
+<a name="explanations"></a><h2>Explanation</h2>
+[ <a href="#summary">summary</a> ] [ <a href="#packages">packages</a> ] [ <a href="#cycles">cycles</a> ] [ <a href="#explanations">explanations</a> ] <br />
+<br />
+The following explanations are for quick reference and are lifted directly from the original JDepend documentation.<br />
+<br />
+<table class="bodyTable"><tr class="b"><th>Term</th>
+<th>Description</th>
+</tr>
+<tr class="a"><td>Number of Classes</td>
+<td>The number of concrete and abstract classes (and interfaces) in the package is an indicator of the extensibility of the package.</td>
+</tr>
+<tr class="b"><td>Afferent Couplings</td>
+<td>The number of other packages that depend upon classes within the package is an indicator of the package's responsibility.</td>
+</tr>
+<tr class="a"><td>Efferent Couplings</td>
+<td>The number of other packages that the classes in the package depend upon is an indicator of the package's independence.</td>
+</tr>
+<tr class="b"><td>Abstractness</td>
+<td>The ratio of the number of abstract classes (and interfaces) in the analyzed package to the total number of classes in the analyzed package. The range for this metric is 0 to 1, with A=0 indicating a completely concrete package and A=1 indicating a completely abstract package.</td>
+</tr>
+<tr class="a"><td>Instability</td>
+<td>The ratio of efferent coupling (Ce) to total coupling (Ce / (Ce + Ca)). This metric is an indicator of the package's resilience to change. The range for this metric is 0 to 1, with I=0 indicating a completely stable package and I=1 indicating a completely instable package.</td>
+</tr>
+<tr class="b"><td>Distance</td>
+<td>The perpendicular distance of a package from the idealized line A + I = 1. This metric is an indicator of the package's balance between abstractness and stability. A package squarely on the main sequence is optimally balanced with respect to its abstractness and stability. Ideal packages are either completely abstract and stable (x=0, y=1) or completely concrete and instable (x=1, y=0). The range for this metric is 0 to 1, with D=0 indicating a package that is coincident with the main sequence and D=1 indicating a package that is as far from the main sequence as possible.</td>
+</tr>
+<tr class="a"><td>Cycles</td>
+<td>Packages participating in a package dependency cycle are  in a deadly embrace with respect to reusability and their  release cycle. Package dependency cycles can be easily identified by reviewing the textual reports of dependency cycles. Once these dependency cycles have been identified with JDepend, they can be broken by employing various object-oriented techniques.</td>
+</tr>
+</table>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;      
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

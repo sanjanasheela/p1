@@ -1,0 +1,343 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' =====================================================
+' SEARCH API LAYER
+' =====================================================
+package "org.apache.roller.weblogger.business.search" {
+
+    interface IndexManager {
+        + initialize() : void
+        + shutdown() : void
+        + release() : void
+        + isInconsistentAtStartup() : boolean
+
+        + addEntryIndexOperation(entry : WeblogEntry) : void
+        + addEntryReIndexOperation(entry : WeblogEntry) : void
+        + removeEntryIndexOperation(entry : WeblogEntry) : void
+
+        + rebuildWeblogIndex()
+        + rebuildWeblogIndex(weblog : Weblog)
+        + removeWeblogIndex(weblog : Weblog)
+
+        + search(
+            term : String,
+            weblogHandle : String,
+            category : String,
+            locale : String,
+            pageNum : int,
+            entryCount : int,
+            urlStrategy : URLStrategy
+        ) : SearchResultList
+    }
+
+    class SearchResultList {
+        - limit : int
+        - offset : int
+        - categories : Set<String>
+        - results : List<WeblogEntryWrapper>
+
+        + getLimit() : int
+        + getOffset() : int
+        + getResults() : List<WeblogEntryWrapper>
+        + getCategories() : Set<String>
+    }
+
+    class SearchResultMap {
+        - limit : int
+        - offset : int
+        - categories : Set<String>
+        - results : Map<Date, Set<WeblogEntryWrapper>>
+
+        + getLimit() : int
+        + getOffset() : int
+        + getResults() : Map<Date, Set<WeblogEntryWrapper>>
+        + getCategories() : Set<String>
+    }
+}
+
+' =====================================================
+' DOMAIN / POJOS
+' =====================================================
+package "org.apache.roller.weblogger.pojos" {
+    class Weblog
+    class WeblogEntry
+    class WeblogCategory
+    class WeblogEntryComment
+}
+
+package "org.apache.roller.weblogger.pojos.wrapper" {
+    class WeblogEntryWrapper
+}
+
+' =====================================================
+' CORE / BUSINESS
+' =====================================================
+package "org.apache.roller.weblogger" {
+    class Weblogger
+    class WebloggerException
+}
+
+package "org.apache.roller.weblogger.business" {
+    class WeblogEntryManager
+    class URLStrategy
+    class InitializationException
+}
+
+' =====================================================
+' LUCENE IMPLEMENTATION
+' =====================================================
+package "org.apache.roller.weblogger.business.search.lucene" {
+
+    class LuceneIndexManager {
+        - reader : IndexReader
+        - roller : Weblogger
+        - searchEnabled : boolean
+        - indexDir : String
+        - inconsistentAtStartup : boolean
+        - rwl : ReadWriteLock
+
+        + initialize() : void
+        + shutdown() : void
+        + release() : void
+        + isInconsistentAtStartup() : boolean
+
+        + rebuildWeblogIndex()
+        + rebuildWeblogIndex(weblog : Weblog)
+        + removeWeblogIndex(weblog : Weblog)
+
+        + addEntryIndexOperation(entry : WeblogEntry)
+        + addEntryReIndexOperation(entry : WeblogEntry)
+        + removeEntryIndexOperation(entry : WeblogEntry)
+
+        + search(...) : SearchResultList
+
+        + getReadWriteLock() : ReadWriteLock
+        + resetSharedReader() : void
+        + getSharedIndexReader() : IndexReader
+        + getIndexDirectory()
+        + {static} getAnalyzer() : Analyzer
+    }
+
+    abstract class IndexOperation {
+        # manager : LuceneIndexManager
+        - writer : IndexWriter
+
+        + run() : void
+        # getDocument(data : WeblogEntry)
+        # beginWriting() : IndexWriter
+        # endWriting() : void
+        # doRun() : void
+    }
+
+    abstract class WriteToIndexOperation {
+        + run() : void
+        # doRun() : void
+    }
+
+    abstract class ReadFromIndexOperation {
+        + run() : void
+        # doRun() : void
+    }
+
+    class AddEntryOperation {
+        - data : WeblogEntry
+        - roller : Weblogger
+
+        + AddEntryOperation(
+            roller : Weblogger,
+            mgr : LuceneIndexManager,
+            data : WeblogEntry
+        )
+
+        + doRun() : void
+    }
+
+    class RemoveEntryOperation {
+        - data : WeblogEntry
+        - roller : Weblogger
+
+        + RemoveEntryOperation(
+            roller : Weblogger,
+            mgr : LuceneIndexManager,
+            data : WeblogEntry
+        )
+
+        + doRun() : void
+    }
+
+    class ReIndexEntryOperation {
+        - data : WeblogEntry
+        - roller : Weblogger
+
+        + ReIndexEntryOperation(
+            roller : Weblogger,
+            mgr : LuceneIndexManager,
+            data : WeblogEntry
+        )
+
+        + doRun() : void
+    }
+
+    class RebuildWebsiteIndexOperation {
+        - website : Weblog
+        - roller : Weblogger
+
+        + RebuildWebsiteIndexOperation(
+            roller : Weblogger,
+            mgr : LuceneIndexManager,
+            website : Weblog
+        )
+
+        + doRun() : void
+    }
+
+    class RemoveWebsiteIndexOperation {
+        - website : Weblog
+        - roller : Weblogger
+
+        + RemoveWebsiteIndexOperation(
+            roller : Weblogger,
+            mgr : LuceneIndexManager,
+            website : Weblog
+        )
+
+        + doRun() : void
+    }
+
+    class SearchOperation {
+        - searcher : IndexSearcher
+        - searchresults : TopFieldDocs
+
+        - term : String
+        - weblogHandle : String
+        - category : String
+        - locale : String
+        - parseError : String
+
+        + SearchOperation(mgr : IndexManager)
+
+        + setTerm(term : String) : void
+        + setWeblogHandle(weblogHandle : String) : void
+        + setCategory(category : String) : void
+        + setLocale(locale : String) : void
+
+        + doRun() : void
+
+        + getSearcher() : IndexSearcher
+        + setSearcher(searcher : IndexSearcher) : void
+        + getResults() : TopFieldDocs
+        + getResultsCount() : int
+        + getParseError() : String
+    }
+
+    class IndexUtil {
+        - IndexUtil()
+
+        + {static} getTerm(
+            field : String,
+            input : String
+        ) : Term
+    }
+}
+
+' =====================================================
+' LUCENE LIBRARY TYPES
+' =====================================================
+package "org.apache.lucene.index" {
+    class Term
+    class IndexWriter
+    class IndexReader
+    class IndexSearcher
+}
+
+package "org.apache.lucene.analysis" {
+    class Analyzer
+}
+
+package "org.apache.lucene.search" {
+    class TopFieldDocs
+}
+
+' =====================================================
+' RELATIONSHIPS
+' =====================================================
+
+' -------- REALIZATION (Interface Implementation) --------
+LuceneIndexManager ..|> IndexManager : <<implements>>
+
+' -------- GENERALIZATION (Inheritance) --------
+WriteToIndexOperation --|> IndexOperation : <<extends>>
+ReadFromIndexOperation --|> IndexOperation : <<extends>>
+
+AddEntryOperation --|> WriteToIndexOperation : <<extends>>
+RemoveEntryOperation --|> WriteToIndexOperation : <<extends>>
+ReIndexEntryOperation --|> WriteToIndexOperation : <<extends>>
+RebuildWebsiteIndexOperation --|> WriteToIndexOperation : <<extends>>
+RemoveWebsiteIndexOperation --|> WriteToIndexOperation : <<extends>>
+
+SearchOperation --|> ReadFromIndexOperation : <<extends>>
+
+' -------- COMPOSITION (Strong ownership - whole-part, lifecycle dependent) --------
+' LuceneIndexManager owns and manages IndexReader lifecycle
+LuceneIndexManager *-- IndexReader : reader
+' IndexOperation owns IndexWriter during its operation
+IndexOperation *-- IndexWriter : writer
+
+' -------- STRONG ASSOCIATION (Object references held as fields) --------
+' IndexOperation holds reference to manager and depends on its lifecycle
+IndexOperation -- LuceneIndexManager : manager >
+' LuceneIndexManager holds reference to Weblogger
+LuceneIndexManager -- Weblogger : roller >
+' AddEntryOperation holds WeblogEntry reference
+AddEntryOperation -- WeblogEntry : data >
+AddEntryOperation -- Weblogger : roller >
+' RemoveEntryOperation holds WeblogEntry reference
+RemoveEntryOperation -- WeblogEntry : data >
+RemoveEntryOperation -- Weblogger : roller >
+' ReIndexEntryOperation holds WeblogEntry reference
+ReIndexEntryOperation -- WeblogEntry : data >
+ReIndexEntryOperation -- Weblogger : roller >
+' RebuildWebsiteIndexOperation holds Weblog reference
+RebuildWebsiteIndexOperation -- Weblog : website >
+RebuildWebsiteIndexOperation -- Weblogger : roller >
+' RemoveWebsiteIndexOperation holds Weblog reference
+RemoveWebsiteIndexOperation -- Weblog : website >
+RemoveWebsiteIndexOperation -- Weblogger : roller >
+' SearchOperation holds IndexSearcher reference
+SearchOperation -- IndexSearcher : searcher >
+SearchOperation -- TopFieldDocs : searchresults >
+
+' -------- AGGREGATION (Weak containment - collections) --------
+SearchResultList o-- WeblogEntryWrapper : results
+SearchResultMap o-- WeblogEntryWrapper : results
+
+' -------- ASSOCIATION (Interaction/Usage in methods) --------
+' LuceneIndexManager creates and manages SearchResultList
+LuceneIndexManager --> SearchResultList : creates >
+' IndexOperation processes WeblogCategory and WeblogEntryComment
+IndexOperation --> WeblogCategory : processes >
+IndexOperation --> WeblogEntryComment : processes >
+' AddEntryOperation uses WeblogEntryManager
+AddEntryOperation --> WeblogEntryManager : uses >
+' RemoveEntryOperation uses WeblogEntryManager
+RemoveEntryOperation --> WeblogEntryManager : uses >
+' ReIndexEntryOperation uses WeblogEntryManager
+ReIndexEntryOperation --> WeblogEntryManager : uses >
+' RebuildWebsiteIndexOperation uses WeblogEntryManager and IndexUtil
+RebuildWebsiteIndexOperation --> WeblogEntryManager : uses >
+RebuildWebsiteIndexOperation --> IndexUtil : uses >
+RebuildWebsiteIndexOperation --> Term : creates >
+' RemoveWebsiteIndexOperation uses IndexUtil
+RemoveWebsiteIndexOperation --> IndexUtil : uses >
+RemoveWebsiteIndexOperation --> Term : uses >
+' SearchOperation uses IndexUtil
+SearchOperation --> IndexUtil : uses >
+SearchOperation --> Term : uses >
+' LuceneIndexManager uses Analyzer
+LuceneIndexManager --> Analyzer : uses >
+' IndexUtil creates Term objects
+IndexUtil --> Analyzer : uses >
+IndexUtil --> Term : creates >
+
+@enduml

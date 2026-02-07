@@ -1,0 +1,108 @@
+@startuml
+
+package "org.apache.roller.weblogger.business.search" {
+    interface IndexManager {
+        + initialize()
+        + shutdown()
+        + release()
+        + isInconsistentAtStartup(): boolean
+        + addEntryIndexOperation(entry: WeblogEntry)
+        + addEntryReIndexOperation(entry: WeblogEntry)
+        + removeEntryIndexOperation(entry: WeblogEntry)
+        + rebuildWeblogIndex(weblog: Weblog)
+        + search(term: String, ...): SearchResultList
+    }
+
+    class SearchResultList {
+        - results: List
+        - categories: Set
+        - limit: int
+        - offset: int
+        + getResults(): List
+    }
+}
+
+package "org.apache.roller.weblogger.business.search.lucene" {
+    class LuceneIndexManager {
+        - indexDir: String
+        - searchEnabled: boolean
+        - reader: IndexReader
+        - rwl: ReadWriteLock
+        - indexConsistencyMarker: File
+        + initialize()
+        + rebuildWeblogIndex()
+        + search(...): SearchResultList
+        + getSharedIndexReader(): IndexReader
+        + getReadWriteLock(): ReadWriteLock
+        - scheduleIndexOperation(op: IndexOperation)
+        - executeIndexOperationNow(op: IndexOperation)
+    }
+
+    abstract class IndexOperation {
+        # manager: LuceneIndexManager
+        - writer: IndexWriter
+        + run()
+        {abstract} # doRun()
+        # getDocument(data: WeblogEntry): Document
+        # beginWriting(): IndexWriter
+        # endWriting()
+    }
+
+    abstract class WriteToIndexOperation {
+        + doRun()
+    }
+
+    abstract class ReadFromIndexOperation {
+        + doRun()
+    }
+
+    class AddEntryOperation {
+        - data: WeblogEntry
+        - roller: Weblogger
+        + AddEntryOperation(roller: Weblogger, mgr: LuceneIndexManager, data: WeblogEntry)
+        + doRun()
+    }
+
+    class RebuildWebsiteIndexOperation {
+        - website: Weblog
+        + RebuildWebsiteIndexOperation(..., website: Weblog)
+        + doRun()
+    }
+
+    class SearchOperation {
+        - searcher: IndexSearcher
+        - term: String
+        - weblogHandle: String
+        - category: String
+        + doRun()
+        + getResults(): TopFieldDocs
+        + setTerm(term: String)
+        + setCategory(cat: String)
+    }
+
+    class IndexUtil {
+        {static} + getTerm(field: String, input: String): Term
+    }
+
+    class FieldConstants {
+        {static} + ID: String
+        {static} + CONTENT: String
+        {static} + TITLE: String
+        {static} + CATEGORY: String
+    }
+}
+
+IndexManager <|.. LuceneIndexManager
+LuceneIndexManager "1" *-- "many" IndexOperation : schedules >
+IndexOperation <|-- WriteToIndexOperation
+IndexOperation <|-- ReadFromIndexOperation
+
+WriteToIndexOperation <|-- AddEntryOperation
+WriteToIndexOperation <|-- RebuildWebsiteIndexOperation
+ReadFromIndexOperation <|-- SearchOperation
+
+IndexOperation ..> FieldConstants : uses
+IndexOperation ..> IndexUtil : uses
+LuceneIndexManager ..> SearchResultList : returns
+
+@enduml

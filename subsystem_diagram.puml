@@ -1,0 +1,187 @@
+@startuml Subsystem_Classes
+
+title Blogs, Entries & Comments - Class Diagram
+
+' Controllers
+class CreateWeblog {
+  - bean : CreateWeblogBean
+  + execute() : String
+  + save() : String
+  + myValidate() : void
+}
+
+class EntryEdit {
+  - bean : EntryBean
+  - entry : WeblogEntry
+  + execute() : String
+  + saveDraft() : String
+  + publish() : String
+  + save() : String
+}
+
+class Comments {
+  - bean : CommentsBean
+  + execute() : String
+  + query() : String
+  + update() : String
+  + delete() : String
+}
+
+' Form Beans
+class CreateWeblogBean {
+  - handle : String
+  - name : String
+  - emailAddress : String
+  - locale : String
+  - timeZone : String
+  - theme : String
+}
+
+class EntryBean {
+  - title : String
+  - text : String
+  - categoryId : String
+  - tagsAsString : String
+  - status : String
+  - allowComments : Boolean
+  + copyFrom(WeblogEntry)
+  + copyTo(WeblogEntry)
+}
+
+class CommentsBean {
+  - entryId : String
+  - searchString : String
+  - deleteComments[] : String[]
+  - approvedComments[] : String[]
+  - spamComments[] : String[]
+}
+
+' Entities
+class Weblog {
+  - id : String
+  - handle : String
+  - name : String
+  - creatorUserName : String
+  - locale : String
+  - timezone : String
+}
+
+class WeblogEntry {
+  - id : String
+  - title : String
+  - text : String
+  - anchor : String
+  - pubTime : Timestamp
+  - status : PubStatus
+  - allowComments : Boolean
+  + isPublished() : boolean
+}
+
+class WeblogEntryComment {
+  - id : String
+  - name : String
+  - email : String
+  - content : String
+  - postTime : Timestamp
+  - status : ApprovalStatus
+}
+
+class WeblogCategory {
+  - id : String
+  - name : String
+  - description : String
+}
+
+class User {
+  - id : String
+  - userName : String
+  - emailAddress : String
+}
+
+class WeblogPermission {
+  - id : String
+  - actionsString : String
+}
+
+' Enums
+enum PubStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+  PENDING
+}
+
+enum ApprovalStatus {
+  APPROVED
+  PENDING
+  SPAM
+  DISAPPROVED
+}
+
+' Factory & Interfaces
+class WebloggerFactory <<singleton>> {
+  + {static} getWeblogger() : Weblogger
+}
+
+interface Weblogger {
+  + getWeblogManager() : WeblogManager
+  + getUserManager() : UserManager
+  + getWeblogEntryManager() : WeblogEntryManager
+  + flush()
+}
+
+interface WeblogManager {
+  + addWeblog(Weblog)
+  + getWeblogByHandle(String) : Weblog
+  + saveWeblog(Weblog)
+}
+
+interface WeblogEntryManager {
+  + saveWeblogEntry(WeblogEntry)
+  + getWeblogEntry(String) : WeblogEntry
+  + getComments(criteria) : List
+  + saveComment(WeblogEntryComment)
+}
+
+class JPAWeblogManagerImpl {
+  + addWeblog(Weblog)
+  - addWeblogContents(Weblog)
+}
+
+class JPAWeblogEntryManagerImpl {
+  + saveWeblogEntry(WeblogEntry)
+  + getComments(criteria) : List
+}
+
+' Relationships - Controllers to Beans
+CreateWeblog --> CreateWeblogBean
+EntryEdit --> EntryBean
+Comments --> CommentsBean
+
+' Relationships - Controllers to Managers
+CreateWeblog ..> WeblogManager
+EntryEdit ..> WeblogEntryManager
+Comments ..> WeblogEntryManager
+
+' Relationships - Factory
+WebloggerFactory ..> Weblogger
+Weblogger --> WeblogManager
+Weblogger --> WeblogEntryManager
+
+' Relationships - Implementations
+JPAWeblogManagerImpl ..|> WeblogManager
+JPAWeblogEntryManagerImpl ..|> WeblogEntryManager
+
+' Relationships - Entities
+Weblog "1" *-- "*" WeblogEntry : contains
+Weblog "1" *-- "*" WeblogCategory : has
+Weblog "1" *-- "*" WeblogPermission : grants
+WeblogEntry "1" *-- "*" WeblogEntryComment : receives
+WeblogEntry --> PubStatus
+WeblogEntryComment --> ApprovalStatus
+WeblogEntry "*" --> "1" WeblogCategory : categorized by
+User "1" -- "*" Weblog : creates
+User "1" -- "*" WeblogEntry : authors
+WeblogPermission "*" --> "1" User : granted to
+
+@enduml

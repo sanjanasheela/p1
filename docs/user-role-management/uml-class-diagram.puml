@@ -1,0 +1,493 @@
+@startuml User_Role_Management_Complete
+
+title User and Role Management Subsystem - Apache Roller
+
+' Layout hints for better organization
+skinparam linetype ortho
+skinparam nodesep 110
+skinparam ranksep 110
+skinparam classAttributeIconSize 0
+
+' ===========================================
+' CONTROLLERS (UI Actions)
+' ===========================================
+
+class Register <<Action>> {
+  - bean : ProfileBean
+  - user : User
+  - activationCode : String
+  - activationStatus : String
+  + execute() : String
+  + save() : String
+  + activate() : String
+  + myValidate() : void
+  + getBean() : ProfileBean
+  + setBean(bean : ProfileBean)
+}
+
+class UserAdmin <<Action>> {
+  - bean : CreateUserBean
+  + execute() : String
+  + edit() : String
+  + getAuthMethod() : String
+  + getBean() : CreateUserBean
+  + setBean(bean : CreateUserBean)
+}
+
+class Members <<Action>> {
+  - parameters : HttpParameters
+  + execute() : String
+  + save() : String
+  + getPermissions() : List<WeblogPermission>
+  + getPendingPermissions() : List<WeblogPermission>
+}
+
+class MembersInvite <<Action>> {
+  - userName : String
+  - permissionString : String
+  + execute() : String
+  + save() : String
+  + cancel() : String
+}
+
+class Profile <<Action>> {
+  - bean : ProfileBean
+  - authUser : User
+  + execute() : String
+  + save() : String
+  + myValidate() : void
+  + getBean() : ProfileBean
+  + setBean(bean : ProfileBean)
+}
+
+' ===========================================
+' FORM BEANS (DTOs)
+' ===========================================
+
+class ProfileBean <<DTO>> {
+  - id : String
+  - userName : String
+  - password : String
+  - screenName : String
+  - fullName : String
+  - emailAddress : String
+  - locale : String
+  - timeZone : String
+  - openIdUrl : String
+  - passwordText : String
+  - passwordConfirm : String
+  + copyFrom(user : User) : void
+  + copyTo(user : User) : void
+}
+
+class CreateUserBean <<DTO>> {
+  - id : String
+  - userName : String
+  - password : String
+  - screenName : String
+  - fullName : String
+  - emailAddress : String
+  - locale : String
+  - timeZone : String
+  - openIdUrl : String
+  - enabled : Boolean
+  - activationCode : String
+  - administrator : boolean
+  - list : List<String>
+  + copyFrom(user : User) : void
+  + copyTo(user : User) : void
+  + hasRequiredGlobalPermissionActions(user : User) : boolean
+}
+
+' ===========================================
+' DOMAIN ENTITIES
+' ===========================================
+
+class User <<Entity>> {
+  - id : String
+  - userName : String
+  - password : String
+  - openIdUrl : String
+  - screenName : String
+  - fullName : String
+  - emailAddress : String
+  - dateCreated : Date
+  - locale : String
+  - timeZone : String
+  - enabled : Boolean
+  - activationCode : String
+  + User()
+  + User(id, userName, password, ...)
+  + getId() : String
+  + setId(id : String) : void
+  + getUserName() : String
+  + setUserName(userName : String) : void
+  + getPassword() : String
+  + setPassword(password : String) : void
+  + resetPassword(newPassword : String) : void
+  + getScreenName() : String
+  + setScreenName(screenName : String) : void
+  + getEmailAddress() : String
+  + setEmailAddress(email : String) : void
+  + getEnabled() : Boolean
+  + setEnabled(enabled : Boolean) : void
+  + hasGlobalPermission(action : String) : boolean
+}
+
+abstract class RollerPermission {
+  # actions : String
+  + RollerPermission(name : String)
+  + {abstract} setActions(actions : String) : void
+  + {abstract} getActions() : String
+  + getActionsAsList() : List<String>
+  + setActionsAsList(actionsList : List<String>) : void
+  + hasAction(action : String) : boolean
+  + hasActions(actionsToCheck : List<String>) : boolean
+  + addActions(newActions : List<String>) : void
+  + removeActions(actionsToRemove : List<String>) : void
+  + {abstract} implies(perm : Permission) : boolean
+}
+
+class GlobalPermission {
+  + LOGIN : String
+  + WEBLOG : String
+  + ADMIN : String
+  + GlobalPermission(user : User)
+  + GlobalPermission(actions : List<String>)
+  + GlobalPermission(user : User, actions : List<String>)
+  + implies(perm : Permission) : boolean
+}
+
+abstract class ObjectPermission {
+  # id : String
+  # userName : String
+  # objectType : String
+  # objectId : String
+  # pending : boolean
+  # dateCreated : Date
+  # actions : String
+  + ObjectPermission()
+  + ObjectPermission(name : String)
+  + getId() : String
+  + getUserName() : String
+  + getObjectId() : String
+  + isPending() : boolean
+  + setPending(pending : boolean) : void
+}
+
+class WeblogPermission <<Entity>> {
+  + EDIT_DRAFT : String
+  + POST : String
+  + ADMIN : String
+  + ALL_ACTIONS : List<String>
+  + WeblogPermission()
+  + WeblogPermission(weblog : Weblog, user : User, actions : String)
+  + WeblogPermission(weblog : Weblog, user : User, actions : List<String>)
+  + getWeblog() : Weblog
+  + getUser() : User
+  + implies(perm : Permission) : boolean
+}
+
+class UserRole <<Entity>> {
+  - id : String
+  - userName : String
+  - role : String
+  + UserRole()
+  + UserRole(username : String, role : String)
+  + getId() : String
+  + getUserName() : String
+  + getRole() : String
+  + setRole(role : String) : void
+}
+
+class Weblog <<Entity>> {
+  - id : String
+  - handle : String
+  - name : String
+  - creator : User
+  - visible : Boolean
+  - active : Boolean
+  + getId() : String
+  + getHandle() : String
+  + getName() : String
+  + getCreator() : User
+  + hasUserPermission(user : User, action : String) : boolean
+}
+
+enum UserStatus {
+  ENABLED
+  DISABLED
+  + name() : String
+}
+
+' ===========================================
+' SECURITY WRAPPER
+' ===========================================
+
+class UserWrapper <<final>> {
+  - pojo : User
+  - UserWrapper(toWrap : User)
+  + wrap(toWrap : User) : UserWrapper
+  + getUserName() : String
+  + getScreenName() : String
+  + getFullName() : String
+  + getEmailAddress() : String
+  + getDateCreated() : Date
+  + getLocale() : String
+  + getTimeZone() : String
+}
+
+' ===========================================
+' FACTORY & CORE INTERFACES
+' ===========================================
+
+class WebloggerFactory <<Factory>> {
+  - webloggerProvider : WebloggerProvider
+  + getWeblogger() : Weblogger
+  + bootstrap() : void
+  + isBootstrapped() : boolean
+}
+
+interface Weblogger {
+  + getUserManager() : UserManager
+  + getWeblogManager() : WeblogManager
+  + flush() : void
+  + shutdown() : void
+}
+
+' ===========================================
+' MANAGER INTERFACES
+' ===========================================
+
+interface UserManager {
+  + addUser(newUser : User) : void
+  + saveUser(user : User) : void
+  + removeUser(user : User) : void
+  + getUser(id : String) : User
+  + getUserByUserName(userName : String) : User
+  + getUserByUserName(userName : String, enabled : Boolean) : User
+  + getUserByOpenIdUrl(openIdUrl : String) : User
+  + getUserByActivationCode(code : String) : User
+  + getUsers(enabled : Boolean, start : Date, end : Date, offset : int, length : int) : List<User>
+  + getUsersStartingWith(startsWith : String, enabled : Boolean, offset : int, length : int) : List<User>
+  + getUsersByLetter(letter : char, offset : int, length : int) : List<User>
+  + getUserCount() : long
+  + getUserNameLetterMap() : Map<String,Long>
+  + checkPermission(perm : RollerPermission, user : User) : boolean
+  + getWeblogPermission(weblog : Weblog, user : User) : WeblogPermission
+  + getWeblogPermissionIncludingPending(weblog : Weblog, user : User) : WeblogPermission
+  + grantWeblogPermission(weblog : Weblog, user : User, actions : List<String>) : void
+  + grantWeblogPermissionPending(weblog : Weblog, user : User, actions : List<String>) : void
+  + confirmWeblogPermission(weblog : Weblog, user : User) : void
+  + declineWeblogPermission(weblog : Weblog, user : User) : void
+  + revokeWeblogPermission(weblog : Weblog, user : User, actions : List<String>) : void
+  + getWeblogPermissions(user : User) : List<WeblogPermission>
+  + getWeblogPermissions(weblog : Weblog) : List<WeblogPermission>
+  + getWeblogPermissionsIncludingPending(weblog : Weblog) : List<WeblogPermission>
+  + getPendingWeblogPermissions(user : User) : List<WeblogPermission>
+  + getPendingWeblogPermissions(weblog : Weblog) : List<WeblogPermission>
+  + hasRole(roleName : String, user : User) : boolean
+  + getRoles(user : User) : List<String>
+  + grantRole(roleName : String, user : User) : void
+  + revokeRole(roleName : String, user : User) : void
+}
+
+interface WeblogManager {
+  + getWeblog(id : String) : Weblog
+  + getWeblogByHandle(handle : String) : Weblog
+  + saveWeblog(weblog : Weblog) : void
+}
+
+' ===========================================
+' IMPLEMENTATIONS
+' ===========================================
+
+class JPAUserManagerImpl <<Singleton>> {
+  - strategy : JPAPersistenceStrategy
+  - userNameToIdMap : Map<String,String>
+  - log : Log
+  + JPAUserManagerImpl(strat : JPAPersistenceStrategy)
+  + addUser(newUser : User) : void
+  + saveUser(user : User) : void
+  + removeUser(user : User) : void
+  + getUser(id : String) : User
+  + getUserByUserName(userName : String) : User
+  + getUserByUserName(userName : String, enabled : Boolean) : User
+  + getUserByOpenIdUrl(openIdUrl : String) : User
+  + getUserByActivationCode(code : String) : User
+  + getUsers(enabled : Boolean, start : Date, end : Date, offset : int, length : int) : List<User>
+  + getUsersStartingWith(startsWith : String, enabled : Boolean, offset : int, length : int) : List<User>
+  + getUsersByLetter(letter : char, offset : int, length : int) : List<User>
+  + getUserCount() : long
+  + getUserNameLetterMap() : Map<String,Long>
+  + checkPermission(perm : RollerPermission, user : User) : boolean
+  + getWeblogPermission(weblog : Weblog, user : User) : WeblogPermission
+  + getWeblogPermissionIncludingPending(weblog : Weblog, user : User) : WeblogPermission
+  + grantWeblogPermission(weblog : Weblog, user : User, actions : List<String>) : void
+  + grantWeblogPermissionPending(weblog : Weblog, user : User, actions : List<String>) : void
+  + confirmWeblogPermission(weblog : Weblog, user : User) : void
+  + declineWeblogPermission(weblog : Weblog, user : User) : void
+  + revokeWeblogPermission(weblog : Weblog, user : User, actions : List<String>) : void
+  + getWeblogPermissions(user : User) : List<WeblogPermission>
+  + getWeblogPermissions(weblog : Weblog) : List<WeblogPermission>
+  + getWeblogPermissionsIncludingPending(weblog : Weblog) : List<WeblogPermission>
+  + getPendingWeblogPermissions(user : User) : List<WeblogPermission>
+  + getPendingWeblogPermissions(weblog : Weblog) : List<WeblogPermission>
+  + hasRole(roleName : String, user : User) : boolean
+  + getRoles(user : User) : List<String>
+  + grantRole(roleName : String, user : User) : void
+  + revokeRole(roleName : String, user : User) : void
+  - loadUserNameIdMap() : void
+}
+
+class JPAPersistenceStrategy {
+  - em : EntityManager
+  + store(obj : Object) : void
+  + remove(obj : Object) : void
+  + load(clazz : Class, id : String) : Object
+  + getNamedQuery(name : String, clazz : Class) : TypedQuery
+  + flush() : void
+}
+
+' ===========================================
+' UTILITY CLASSES
+' ===========================================
+
+class UUIDGenerator <<utility>> {
+  + generateUUID() : String
+}
+
+class HTMLSanitizer <<utility>> {
+  + conditionallySanitize(input : String) : String
+}
+
+class RollerContext <<utility>> {
+  + getPasswordEncoder() : PasswordEncoder
+}
+
+class WebloggerConfig <<utility>> {
+  + getProperty(key : String) : String
+  + getBooleanProperty(key : String) : boolean
+}
+
+class MailUtil <<utility>> {
+  + sendUserActivationEmail(user : User) : void
+  + sendWeblogInvitation(weblog : Weblog, user : User) : void
+}
+
+interface PasswordEncoder <<Spring Security>> {
+  + encode(rawPassword : CharSequence) : String
+  + matches(rawPassword : CharSequence, encodedPassword : String) : boolean
+}
+
+' ===========================================
+' EXCEPTIONS
+' ===========================================
+
+class WebloggerException <<exception>> {
+  + WebloggerException(message : String)
+  + WebloggerException(message : String, cause : Throwable)
+}
+
+' ===========================================
+' RELATIONSHIPS - CONTROLLERS
+' ==========================================
+
+Register *-- ProfileBean
+Register ..> WebloggerFactory : uses
+Register ..> UserManager : uses
+Register ..> MailUtil : uses
+Register -down-> User : creates
+
+UserAdmin *-- CreateUserBean
+UserAdmin ..> UserManager : uses
+UserAdmin --> User : manages
+UserAdmin ..> WebloggerFactory : uses
+
+Members ..up..> WebloggerFactory : uses
+Members ..> UserManager : uses
+Members --> WeblogPermission : manages
+Members --> Weblog : manages members
+
+MembersInvite ..> WebloggerFactory : uses
+MembersInvite ..> UserManager : uses
+MembersInvite ..> MailUtil : uses
+MembersInvite --> WeblogPermission : creates
+MembersInvite --> User : invites
+
+Profile *-left- ProfileBean
+Profile ..> UserManager : uses
+Profile ..up..> WebloggerFactory : uses
+Profile -down-> User : updates
+
+' ===========================================
+' RELATIONSHIPS - BEANS & ENTITIES
+' ===========================================
+
+ProfileBean ..> User : transfers to/from
+CreateUserBean ..> User : transfers to/from
+
+' ===========================================
+' RELATIONSHIPS - FACTORY & INTERFACES
+' ===========================================
+
+WebloggerFactory ..> Weblogger : provides
+Weblogger --> UserManager : provides
+Weblogger --> WeblogManager : provides
+
+' ===========================================
+' RELATIONSHIPS - IMPLEMENTATIONS
+' ===========================================
+
+JPAUserManagerImpl --|> UserManager : implements
+JPAUserManagerImpl *-- JPAPersistenceStrategy : owns
+JPAUserManagerImpl --> User : persists
+JPAUserManagerImpl --> WeblogPermission : manages
+JPAUserManagerImpl --> UserRole : manages
+JPAUserManagerImpl ..> GlobalPermission : checks
+JPAUserManagerImpl ..> WebloggerException : throws
+
+' ===========================================
+' RELATIONSHIPS - DOMAIN MODEL
+' ===========================================
+
+GlobalPermission --|> RollerPermission : extends
+ObjectPermission --|> RollerPermission : extends
+WeblogPermission --|> ObjectPermission : extends
+
+WeblogPermission "*" -right-> "1" Weblog : for
+WeblogPermission "*" -left-> "1" User : granted to
+UserRole "*" -up-> "1" User : assigned to
+Weblog "*" -up-> "1" User : created by
+
+User --> UserStatus : has status
+
+' ===========================================
+' RELATIONSHIPS - DEPENDENCIES
+' ===========================================
+
+User ..> UUIDGenerator : generates id
+User ..> HTMLSanitizer : sanitizes
+User ..> WebloggerFactory : accesses
+User ..> PasswordEncoder : encrypts
+User ..> RollerContext : gets encoder
+User ..> GlobalPermission : checks
+
+WeblogPermission ..> UUIDGenerator : generates id
+WeblogPermission ..> WebloggerFactory : loads entities
+
+GlobalPermission ..> WebloggerFactory : accesses
+GlobalPermission ..> WebloggerConfig : reads config
+
+UserRole ..> UUIDGenerator : generates id
+
+UserWrapper o-- User : wraps
+UserWrapper ..> HTMLSanitizer : sanitizes
+UserWrapper ..> WebloggerConfig : reads config
+
+RollerContext ..> PasswordEncoder : provides
+
+MailUtil ..> User : notifies
+MailUtil ..> Weblog : sends invites
+
+@enduml

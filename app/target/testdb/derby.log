@@ -1,0 +1,14 @@
+Sat Feb 07 18:30:08 IST 2026 : Apache Derby Network Server - 10.11.1.1 - (1616546) started and ready to accept connections on port 4224
+----------------------------------------------------------------
+Sat Feb 07 18:30:10 IST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-019c-3830-2fce-0000453c4aad 
+on database directory /home/sanjana/Documents/6/SE/project-1-team-18/app/target/testdb/rollerdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@acccbd0 
+Loaded from file:/home/sanjana/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=22.0.2+9-70
+user.dir=/home/sanjana/Documents/6/SE/project-1-team-18/app
+os.name=Linux
+os.arch=amd64
+os.version=6.17.0-8-generic
+derby.system.home=./target/testdb
+Database Class Loader started - derby.database.classpath=''
