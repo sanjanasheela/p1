@@ -119,6 +119,41 @@ public interface Weblogger {
     PluginManager getPluginManager();
     
     /**
+     * Get WeblogCategoryService associated with this Weblogger instance.
+     */
+    org.apache.roller.weblogger.business.services.WeblogCategoryService getWeblogCategoryService();
+    
+    /**
+     * Get WeblogBookmarkService associated with this Weblogger instance.
+     */
+    org.apache.roller.weblogger.business.services.WeblogBookmarkService getWeblogBookmarkService();
+    
+    /**
+     * Get WeblogMediaService associated with this Weblogger instance.
+     */
+    org.apache.roller.weblogger.business.services.WeblogMediaService getWeblogMediaService();
+    
+    /**
+     * Get WeblogConfigService associated with this Weblogger instance.
+     */
+    org.apache.roller.weblogger.business.services.WeblogConfigService getWeblogConfigService();
+    
+    /**
+     * Get WeblogThemeService associated with this Weblogger instance.
+     */
+    org.apache.roller.weblogger.business.services.WeblogThemeService getWeblogThemeService();
+    
+    /**
+     * Get WeblogPluginService associated with this Weblogger instance.
+     */
+    org.apache.roller.weblogger.business.services.WeblogPluginService getWeblogPluginService();
+    
+    /**
+     * Get WeblogPermissionService associated with this Weblogger instance.
+     */
+    org.apache.roller.weblogger.business.services.WeblogPermissionService getWeblogPermissionService();
+    
+    /**
      * Get MediaFileManager associated with this Weblogger instance.
      */
     MediaFileManager getMediaFileManager();

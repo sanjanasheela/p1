@@ -85,6 +85,22 @@ public class JPAWebloggerModule implements Module {
         binder.bind(PluginManager.class).to(       PluginManagerImpl.class);    
         binder.bind(ThemeManager.class).to(        ThemeManagerImpl.class);
         
+        // weblog services (to eliminate Hub-like Modularization smell)
+        binder.bind(org.apache.roller.weblogger.business.services.WeblogCategoryService.class).to(
+            org.apache.roller.weblogger.business.services.impl.WeblogCategoryServiceImpl.class);
+        binder.bind(org.apache.roller.weblogger.business.services.WeblogBookmarkService.class).to(
+            org.apache.roller.weblogger.business.services.impl.WeblogBookmarkServiceImpl.class);
+        binder.bind(org.apache.roller.weblogger.business.services.WeblogMediaService.class).to(
+            org.apache.roller.weblogger.business.services.impl.WeblogMediaServiceImpl.class);
+        binder.bind(org.apache.roller.weblogger.business.services.WeblogConfigService.class).to(
+            org.apache.roller.weblogger.business.services.impl.WeblogConfigServiceImpl.class);
+        binder.bind(org.apache.roller.weblogger.business.services.WeblogThemeService.class).to(
+            org.apache.roller.weblogger.business.services.impl.WeblogThemeServiceImpl.class);
+        binder.bind(org.apache.roller.weblogger.business.services.WeblogPluginService.class).to(
+            org.apache.roller.weblogger.business.services.impl.WeblogPluginServiceImpl.class);
+        binder.bind(org.apache.roller.weblogger.business.services.WeblogPermissionService.class).to(
+            org.apache.roller.weblogger.business.services.impl.WeblogPermissionServiceImpl.class);
+        
         binder.bind(URLStrategy.class).to(         MultiWeblogURLStrategy.class);
         binder.bind(PlanetURLStrategy.class).to(   MultiPlanetURLStrategy.class);
 		binder.bind(Planet.class).to(              JPAPlanetImpl.class);

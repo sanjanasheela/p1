@@ -72,6 +72,15 @@ public abstract class WebloggerImpl implements Weblogger {
     private final FeedFetcher          feedFetcher;
     private final PlanetManager        planetManager;
     
+    // weblog services (to eliminate Hub-like Modularization smell)
+    private final org.apache.roller.weblogger.business.services.WeblogCategoryService categoryService;
+    private final org.apache.roller.weblogger.business.services.WeblogBookmarkService bookmarkService;
+    private final org.apache.roller.weblogger.business.services.WeblogMediaService mediaService;
+    private final org.apache.roller.weblogger.business.services.WeblogConfigService configService;
+    private final org.apache.roller.weblogger.business.services.WeblogThemeService themeService;
+    private final org.apache.roller.weblogger.business.services.WeblogPluginService pluginService;
+    private final org.apache.roller.weblogger.business.services.WeblogPermissionService permissionService;
+    
     // url strategy
     private final URLStrategy          urlStrategy;
     private final org.apache.roller.planet.business.PlanetURLStrategy planetUrlStrategy;
@@ -102,7 +111,14 @@ public abstract class WebloggerImpl implements Weblogger {
         FeedFetcher          feedFetcher,
         PlanetManager        planetManager,
         org.apache.roller.planet.business.PlanetURLStrategy planetUrlStrategy,
-        URLStrategy          urlStrategy) throws WebloggerException { 
+        URLStrategy          urlStrategy,
+        org.apache.roller.weblogger.business.services.WeblogCategoryService categoryService,
+        org.apache.roller.weblogger.business.services.WeblogBookmarkService bookmarkService,
+        org.apache.roller.weblogger.business.services.WeblogMediaService mediaService,
+        org.apache.roller.weblogger.business.services.WeblogConfigService configService,
+        org.apache.roller.weblogger.business.services.WeblogThemeService themeService,
+        org.apache.roller.weblogger.business.services.WeblogPluginService pluginService,
+        org.apache.roller.weblogger.business.services.WeblogPermissionService permissionService) throws WebloggerException { 
                 
         this.autoPingManager     = autoPingManager;
         this.bookmarkManager     = bookmarkManager;
@@ -123,6 +139,13 @@ public abstract class WebloggerImpl implements Weblogger {
         this.feedFetcher         = feedFetcher;
         this.planetManager       = planetManager;
         this.planetUrlStrategy   = planetUrlStrategy;
+        this.categoryService     = categoryService;
+        this.bookmarkService     = bookmarkService;
+        this.mediaService        = mediaService;
+        this.configService       = configService;
+        this.themeService        = themeService;
+        this.pluginService       = pluginService;
+        this.permissionService   = permissionService;
 
         Properties props = new Properties();
         try {
@@ -324,6 +347,62 @@ public abstract class WebloggerImpl implements Weblogger {
 	public org.apache.roller.planet.business.PlanetURLStrategy getPlanetURLStrategy() {
 		return planetUrlStrategy;
 	}
+
+    /**
+     * Get WeblogCategoryService
+     */
+    @Override
+    public org.apache.roller.weblogger.business.services.WeblogCategoryService getWeblogCategoryService() {
+        return categoryService;
+    }
+
+    /**
+     * Get WeblogBookmarkService
+     */
+    @Override
+    public org.apache.roller.weblogger.business.services.WeblogBookmarkService getWeblogBookmarkService() {
+        return bookmarkService;
+    }
+
+    /**
+     * Get WeblogMediaService
+     */
+    @Override
+    public org.apache.roller.weblogger.business.services.WeblogMediaService getWeblogMediaService() {
+        return mediaService;
+    }
+
+    /**
+     * Get WeblogConfigService
+     */
+    @Override
+    public org.apache.roller.weblogger.business.services.WeblogConfigService getWeblogConfigService() {
+        return configService;
+    }
+
+    /**
+     * Get WeblogThemeService
+     */
+    @Override
+    public org.apache.roller.weblogger.business.services.WeblogThemeService getWeblogThemeService() {
+        return themeService;
+    }
+
+    /**
+     * Get WeblogPluginService
+     */
+    @Override
+    public org.apache.roller.weblogger.business.services.WeblogPluginService getWeblogPluginService() {
+        return pluginService;
+    }
+
+    /**
+     * Get WeblogPermissionService
+     */
+    @Override
+    public org.apache.roller.weblogger.business.services.WeblogPermissionService getWeblogPermissionService() {
+        return permissionService;
+    }
 
     /**
      * @inheritDoc

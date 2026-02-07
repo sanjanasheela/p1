@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.roller.planet.business;
 
 import org.apache.commons.logging.Log;
@@ -23,40 +24,36 @@ import org.apache.roller.planet.pojos.Subscription;
 import org.apache.roller.weblogger.TestUtils;
 import org.apache.roller.weblogger.business.WebloggerFactory;
 import org.junit.jupiter.api.AfterEach;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 
 /**
  * Test database implementation of PlanetManager.
  */
-public class RomeFeedFetcherTest {
-
+public class RomeFeedFetcherTest  {
+    
     public static Log log = LogFactory.getLog(RomeFeedFetcherTest.class);
-
+    
     String feed_url = "https://rollerweblogger.org/roller/feed/entries/atom";
-
+    
     @BeforeEach
     public void setUp() throws Exception {
         // setup planet
         TestUtils.setupWeblogger();
     }
-
+    
     @AfterEach
     public void tearDown() throws Exception {
     }
 
     @Test
-    @Disabled("Trying to fetch a live external URL, which is flaky and fails if site is down or network is unavailable.")
     public void testFetchFeed() throws FetcherException {
 
         try {
             FeedFetcher feedFetcher = WebloggerFactory.getWeblogger().getFeedFetcher();
-
+            
             // fetch feed
             Subscription sub = feedFetcher.fetchSubscription(feed_url);
             assertNotNull(sub);
@@ -72,13 +69,13 @@ public class RomeFeedFetcherTest {
         }
     }
 
+
     @Test
-    @Disabled("Trying to fetch a live external URL, which is flaky and fails if site is down or network is unavailable.")
     public void testFetchFeedConditionally() throws FetcherException {
 
         try {
             FeedFetcher feedFetcher = WebloggerFactory.getWeblogger().getFeedFetcher();
-
+            
             // fetch feed
             Subscription sub = feedFetcher.fetchSubscription(feed_url);
             assertNotNull(sub);
@@ -87,7 +84,7 @@ public class RomeFeedFetcherTest {
             assertEquals("Blogging Roller", sub.getTitle());
             assertNotNull(sub.getLastUpdated());
             assertTrue(!sub.getEntries().isEmpty());
-
+            
             // now do a conditional fetch and we should get back null
             Subscription updatedSub = feedFetcher.fetchSubscription(feed_url, sub.getLastUpdated());
             assertNull(updatedSub);
@@ -97,5 +94,5 @@ public class RomeFeedFetcherTest {
             throw ex;
         }
     }
-
+    
 }

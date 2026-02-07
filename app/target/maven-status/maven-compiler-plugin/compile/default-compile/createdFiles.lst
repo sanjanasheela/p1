@@ -1,4 +1,6 @@
+org/apache/roller/weblogger/business/services/WeblogPermissionService.class
 org/apache/roller/planet/pojos/StaticTemplate.class
+org/apache/roller/weblogger/util/GenericThrottle$ClientInfo.class
 org/apache/roller/weblogger/ui/rendering/velocity/WebappResourceLoader.class
 org/apache/roller/weblogger/business/jpa/JPAUserManagerImpl.class
 org/apache/roller/weblogger/pojos/WeblogEntryComment.class
@@ -13,6 +15,7 @@ org/apache/roller/weblogger/ui/rendering/model/ModelLoader.class
 org/apache/roller/weblogger/ui/struts2/core/Register.class
 org/apache/roller/weblogger/business/startup/DatabaseInstaller.class
 org/apache/roller/weblogger/ui/rendering/pagers/WeblogEntriesPreviewPager.class
+org/apache/roller/weblogger/business/services/impl/WeblogBookmarkServiceImpl.class
 org/apache/roller/weblogger/webservices/opensearch/package-info.class
 org/apache/roller/weblogger/pojos/TemplateRendition$TemplateLanguage.class
 org/apache/roller/weblogger/ui/rendering/util/WeblogFeedRequest.class
@@ -28,6 +31,7 @@ org/apache/roller/weblogger/ui/core/filters/package-info.class
 org/apache/roller/weblogger/business/pings/WeblogUpdatePinger.class
 org/apache/roller/weblogger/business/Weblogger.class
 org/apache/roller/weblogger/ui/rendering/servlets/PreviewServlet.class
+org/apache/roller/weblogger/business/services/WeblogConfigService.class
 org/apache/roller/weblogger/pojos/PingTarget.class
 org/apache/roller/weblogger/business/search/lucene/WriteToIndexOperation.class
 org/apache/roller/weblogger/ui/rendering/pagers/WeblogEntriesPager.class
@@ -65,6 +69,8 @@ org/apache/roller/weblogger/ui/rendering/pagers/WeblogEntriesListPager.class
 org/apache/roller/weblogger/util/GenericThrottle.class
 org/apache/roller/weblogger/business/package-info.class
 org/apache/roller/weblogger/business/jpa/JPAWebloggerModule.class
+org/apache/roller/weblogger/pojos/WeblogConfiguration.class
+org/apache/roller/weblogger/business/services/impl/WeblogMediaServiceImpl.class
 org/apache/roller/weblogger/ui/core/filters/DebugFilter.class
 org/apache/roller/weblogger/business/BootstrapException.class
 org/apache/roller/weblogger/webservices/atomprotocol/MediaCollection.class
@@ -83,6 +89,7 @@ org/apache/roller/weblogger/business/themes/SharedThemeFromDir.class
 org/apache/roller/weblogger/ui/struts2/editor/FolderBean.class
 org/apache/roller/weblogger/webservices/oauth/RequestTokenServlet.class
 org/apache/roller/weblogger/business/themes/ThemeInitializationException.class
+org/apache/roller/weblogger/business/services/WeblogPluginService.class
 org/apache/roller/weblogger/business/jpa/JPAThreadManagerImpl.class
 org/apache/roller/weblogger/pojos/Weblog.class
 org/apache/roller/weblogger/business/search/lucene/RemoveWebsiteIndexOperation.class
@@ -92,6 +99,7 @@ org/apache/roller/weblogger/util/URLUtilities.class
 org/apache/roller/weblogger/ui/rendering/servlets/CommentServlet.class
 org/apache/roller/weblogger/webservices/xmlrpc/MetaWeblogAPIHandler.class
 org/apache/roller/util/ISO8601DateParser.class
+org/apache/roller/weblogger/business/services/impl/WeblogThemeServiceImpl.class
 org/apache/roller/weblogger/ui/struts2/editor/CategoryEdit.class
 org/apache/roller/weblogger/ui/rendering/pagers/WeblogEntriesLatestPager.class
 org/apache/roller/util/RegexUtil.class
@@ -149,6 +157,7 @@ org/apache/roller/weblogger/pojos/MediaFileDirectory.class
 org/apache/roller/weblogger/ui/rendering/util/cache/WeblogCacheWarmupJob.class
 org/apache/roller/weblogger/util/I18nUtils.class
 org/apache/roller/weblogger/ui/core/plugins/UIPluginManagerImpl.class
+org/apache/roller/weblogger/business/services/WeblogCategoryService.class
 org/apache/roller/planet/business/PlanetProvider.class
 org/apache/roller/weblogger/ui/rendering/model/MenuModel.class
 org/apache/roller/weblogger/ui/rendering/servlets/SearchServlet.class
@@ -219,6 +228,7 @@ org/apache/roller/weblogger/ui/struts2/admin/PingTargetEdit.class
 org/apache/roller/planet/util/rome/ContentModuleParser.class
 org/apache/roller/weblogger/pojos/GlobalPermission.class
 org/apache/roller/planet/pojos/PlanetGroup.class
+org/apache/roller/weblogger/business/services/WeblogBookmarkService.class
 org/apache/roller/weblogger/util/Bannedwordslist.class
 org/apache/roller/weblogger/ui/struts2/editor/CommentsBean.class
 org/apache/roller/weblogger/util/StandaloneWebappClassLoader.class
@@ -251,6 +261,7 @@ org/apache/roller/weblogger/business/startup/WebloggerStartup.class
 org/apache/roller/weblogger/pojos/MediaFileFilter.class
 org/apache/roller/weblogger/pojos/StaticTemplate.class
 org/apache/roller/planet/business/updater/FeedUpdater.class
+org/apache/roller/weblogger/business/services/impl/WeblogPluginServiceImpl.class
 org/apache/roller/weblogger/ui/struts2/core/CreateWeblog.class
 org/apache/roller/weblogger/planet/ui/PlanetGroupSubs.class
 org/apache/roller/weblogger/ui/rendering/util/mobile/Device.class
@@ -280,6 +291,7 @@ org/apache/roller/weblogger/pojos/wrapper/ThemeTemplateWrapper.class
 org/apache/roller/weblogger/business/BookmarkManager.class
 org/apache/roller/weblogger/pojos/ThemeTemplate.class
 org/apache/roller/weblogger/ui/struts2/editor/Templates.class
+org/apache/roller/weblogger/pojos/WeblogCommentSettings.class
 org/apache/roller/weblogger/ui/rendering/model/ConfigModel.class
 org/apache/roller/planet/util/rome/ContentModuleGenerator.class
 org/apache/roller/weblogger/ui/rendering/pagers/AbstractPager.class
@@ -292,6 +304,7 @@ org/apache/roller/weblogger/business/jpa/JPAPropertiesManagerImpl.class
 org/apache/roller/planet/tasks/PlanetTask.class
 org/apache/roller/weblogger/util/LRUCache2$CacheEntry.class
 org/apache/roller/weblogger/business/pings/package-info.class
+org/apache/roller/weblogger/business/services/WeblogThemeService.class
 org/apache/roller/weblogger/ui/rendering/velocity/package-info.class
 org/apache/roller/weblogger/ui/rendering/RequestMapper.class
 org/apache/roller/weblogger/ui/struts2/editor/CategoryBean.class
@@ -303,6 +316,7 @@ org/apache/roller/weblogger/util/Utilities.class
 org/apache/roller/weblogger/ui/rendering/servlets/PageServlet.class
 org/apache/roller/weblogger/ui/core/security/RollerUserDetails.class
 org/apache/roller/planet/tasks/package-info.class
+org/apache/roller/weblogger/business/services/impl/WeblogCategoryServiceImpl.class
 org/apache/roller/weblogger/ui/rendering/filters/RequestMappingFilter.class
 org/apache/roller/weblogger/pojos/MediaFileComparator.class
 org/apache/roller/weblogger/planet/ui/PlanetUIAction.class
@@ -349,6 +363,7 @@ org/apache/roller/weblogger/business/search/package-info.class
 org/apache/roller/weblogger/ui/rendering/RenderingException.class
 org/apache/roller/weblogger/pojos/CustomTemplateRendition.class
 org/apache/roller/weblogger/pojos/WeblogPermission.class
+org/apache/roller/weblogger/pojos/WeblogMetrics.class
 org/apache/roller/weblogger/ui/struts2/pagers/package-info.class
 org/apache/roller/weblogger/ui/rendering/util/mobile/DeviceType.class
 org/apache/roller/weblogger/business/themes/SharedThemeResourceFromDir.class
@@ -400,6 +415,7 @@ org/apache/roller/weblogger/ui/rendering/model/URLModel$EntryFeedURLS.class
 org/apache/roller/weblogger/ui/rendering/model/FeedModel$FeedFilesPager.class
 org/apache/roller/weblogger/ui/struts2/util/UISecurityInterceptor.class
 org/apache/roller/weblogger/ui/struts2/core/Login.class
+org/apache/roller/weblogger/business/services/impl/WeblogConfigServiceImpl.class
 org/apache/roller/weblogger/ui/core/filters/RoleAssignmentRequestWrapper.class
 org/apache/roller/weblogger/ui/core/tags/calendar/BigWeblogCalendarModel.class
 org/apache/roller/planet/business/jpa/package-info.class
@@ -440,6 +456,7 @@ org/apache/roller/weblogger/ui/core/util/menu/package-info.class
 org/apache/roller/weblogger/business/jpa/JPAWebloggerImpl.class
 org/apache/roller/planet/pojos/Template.class
 org/apache/roller/weblogger/business/runnable/ScheduledEntriesTask.class
+org/apache/roller/weblogger/pojos/WeblogLocalization.class
 org/apache/roller/weblogger/business/TestTask.class
 org/apache/roller/weblogger/ui/core/tags/calendar/CalendarModel.class
 org/apache/roller/weblogger/business/themes/SharedTheme.class
@@ -485,6 +502,7 @@ org/apache/roller/weblogger/ui/rendering/util/WeblogPreviewRequest.class
 org/apache/roller/weblogger/ui/rendering/servlets/FeedServlet.class
 org/apache/roller/weblogger/business/search/lucene/ReIndexEntryOperation.class
 org/apache/roller/weblogger/business/themes/ThemeNotFoundException.class
+org/apache/roller/weblogger/pojos/WeblogContentManager.class
 org/apache/roller/weblogger/business/search/lucene/FieldConstants.class
 org/apache/roller/weblogger/ui/rendering/model/URLModel$CommentFeedURLS.class
 org/apache/roller/weblogger/ui/rendering/util/cache/PlanetCache.class
@@ -502,6 +520,7 @@ org/apache/roller/weblogger/ui/rendering/util/cache/WeblogFeedCache.class
 org/apache/roller/weblogger/ui/struts2/admin/CacheInfo.class
 org/apache/roller/weblogger/ui/struts2/pagers/EntriesPager.class
 org/apache/roller/weblogger/ui/rendering/plugins/comments/LdapCommentAuthenticator.class
+org/apache/roller/weblogger/business/services/impl/WeblogPermissionServiceImpl.class
 org/apache/roller/weblogger/ui/struts2/admin/GlobalConfig.class
 org/apache/roller/weblogger/util/LinkbackExtractor.class
 org/apache/roller/weblogger/pojos/MediaFileType.class
@@ -566,6 +585,7 @@ org/apache/roller/weblogger/business/PreviewURLStrategy.class
 org/apache/roller/weblogger/ui/struts2/core/Profile.class
 org/apache/roller/weblogger/ui/rendering/servlets/MediaResourceServlet.class
 org/apache/roller/weblogger/ui/rendering/util/ModDateHeaderUtil.class
+org/apache/roller/weblogger/business/services/WeblogMediaService.class
 org/apache/roller/RollerException.class
 org/apache/roller/weblogger/util/cache/CacheHandler.class
 org/apache/roller/weblogger/util/package-info.class

@@ -65,7 +65,14 @@ public class JPAWebloggerImpl extends WebloggerImpl {
 		FeedFetcher          feedFetcher,
         PlanetManager        planetManager,
         PlanetURLStrategy    planetUrlStrategy,
-        URLStrategy          urlStrategy) throws WebloggerException {
+        URLStrategy          urlStrategy,
+        org.apache.roller.weblogger.business.services.WeblogCategoryService categoryService,
+        org.apache.roller.weblogger.business.services.WeblogBookmarkService bookmarkService,
+        org.apache.roller.weblogger.business.services.WeblogMediaService mediaService,
+        org.apache.roller.weblogger.business.services.WeblogConfigService configService,
+        org.apache.roller.weblogger.business.services.WeblogThemeService themeService,
+        org.apache.roller.weblogger.business.services.WeblogPluginService pluginService,
+        org.apache.roller.weblogger.business.services.WeblogPermissionService permissionService) throws WebloggerException {
         
         super(
             autoPingManager,
@@ -86,7 +93,14 @@ public class JPAWebloggerImpl extends WebloggerImpl {
             feedFetcher,
             planetManager,
             planetUrlStrategy,
-            urlStrategy);
+            urlStrategy,
+            categoryService,
+            bookmarkService,
+            mediaService,
+            configService,
+            themeService,
+            pluginService,
+            permissionService);
         
         this.strategy = strategy;
     }

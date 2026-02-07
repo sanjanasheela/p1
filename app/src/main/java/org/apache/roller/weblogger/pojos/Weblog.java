@@ -53,51 +53,26 @@ public class Weblog implements Serializable {
     public static final long serialVersionUID = 206437645033737127L;
     
     private static Log log = LogFactory.getLog(Weblog.class);
-
-    private static final int MAX_ENTRIES = 100;
     
-    // Simple properties
+    // Core identity properties
     private String  id               = UUIDGenerator.generateUUID();
     private String  handle           = null;
     private String  name             = null;
     private String  tagline          = null;
-    private Boolean enableBloggerApi = Boolean.TRUE;
-    private String  editorPage       = null;
-    private String  bannedwordslist  = null;
-    private Boolean allowComments    = Boolean.TRUE;
-    private Boolean emailComments    = Boolean.FALSE;
     private String  emailAddress     = null;
-    private String  editorTheme      = null;
-    private String  locale           = null;
-    private String  timeZone         = null;
-    private String  defaultPlugins   = null;
-    private Boolean visible          = Boolean.TRUE;
-    private Boolean active           = Boolean.TRUE;
-    private Date    dateCreated      = new java.util.Date();
-    private Boolean defaultAllowComments = Boolean.TRUE;
-    private int     defaultCommentDays = 0;
-    private Boolean moderateComments = Boolean.FALSE;
-    private int     entryDisplayCount = 15;
-    private Date    lastModified     = new Date();
-    private boolean enableMultiLang  = false;
-    private boolean showAllLangs     = true;
-    private String  iconPath         = null;
-    private String  about            = null;
     private String  creator          = null;
-    private String  analyticsCode    = null;
+    private Date    dateCreated      = new java.util.Date();
+    private Date    lastModified     = new Date();
 
-    // Associated objects
-    private WeblogCategory bloggerCategory = null;
-
-    private Map<String, WeblogEntryPlugin> initializedPlugins = null;
-
-    private List<WeblogCategory> weblogCategories = new ArrayList<>();
-
-    private List<WeblogBookmarkFolder> bookmarkFolders = new ArrayList<>();
-
-    private List<MediaFileDirectory> mediaFileDirectories = new ArrayList<>();
+    // Component objects - encapsulate different concerns
+    private WeblogConfiguration configuration;
+    private WeblogCommentSettings commentSettings;
+    private WeblogLocalization localization;
+    private WeblogContentManager contentManager;
+    private WeblogMetrics metrics;
 
     public Weblog() {
+        initializeComponents();
     }
     
     public Weblog(
@@ -110,14 +85,27 @@ public class Weblog implements Serializable {
             String locale,
             String timeZone) {
         
+        initializeComponents();
+        
         this.handle = handle;
         this.creator = creator;
         this.name = name;
         this.tagline = desc;
         this.emailAddress = email;
-        this.editorTheme = editorTheme;
-        this.locale = locale;
-        this.timeZone = timeZone;
+        this.configuration.setEditorTheme(editorTheme);
+        this.localization.setLocale(locale);
+        this.localization.setTimeZone(timeZone);
+    }
+    
+    /**
+     * Initialize component objects
+     */
+    private void initializeComponents() {
+        this.configuration = new WeblogConfiguration(this);
+        this.commentSettings = new WeblogCommentSettings(this);
+        this.localization = new WeblogLocalization(this);
+        this.contentManager = new WeblogContentManager(this);
+        this.metrics = new WeblogMetrics(this);
     }
     
     //------------------------------------------------------- Good citizenship
@@ -152,17 +140,17 @@ public class Weblog implements Serializable {
     
     /**
      * Get the Theme object in use by this weblog, or null if no theme selected.
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogThemeService#getTheme(Weblog)} instead
      */
+    @Deprecated
     public WeblogTheme getTheme() {
         try {
-            // let the ThemeManager handle it
-            ThemeManager themeMgr = WebloggerFactory.getWeblogger().getThemeManager();
-            return themeMgr.getTheme(this);
-        } catch (WebloggerException ex) {
+            return WebloggerFactory.getWeblogger()
+                .getWeblogThemeService()
+                .getTheme(this);
+        } catch (Exception ex) {
             log.error("Error getting theme for weblog - "+getHandle(), ex);
         }
-        
-        // TODO: maybe we should return a default theme in this case?
         return null;
     }
 
@@ -235,73 +223,75 @@ public class Weblog implements Serializable {
     }
 
     public Boolean getEnableBloggerApi() {
-        return this.enableBloggerApi;
+        return configuration.getEnableBloggerApi();
     }
     
     public void setEnableBloggerApi(Boolean enableBloggerApi) {
-        this.enableBloggerApi = enableBloggerApi;
+        configuration.setEnableBloggerApi(enableBloggerApi);
     }
     
-    public WeblogCategory getBloggerCategory() { return bloggerCategory; }
+    public WeblogCategory getBloggerCategory() {
+        return configuration.getBloggerCategory();
+    }
     
     public void setBloggerCategory(WeblogCategory bloggerCategory) {
-        this.bloggerCategory = bloggerCategory;
+        configuration.setBloggerCategory(bloggerCategory);
     }
     
     public String getEditorPage() {
-        return this.editorPage;
+        return configuration.getEditorPage();
     }
     
     public void setEditorPage(String editorPage) {
-        this.editorPage = editorPage;
+        configuration.setEditorPage(editorPage);
     }
     
     public String getBannedwordslist() {
-        return this.bannedwordslist;
+        return configuration.getBannedwordslist();
     }
     
     public void setBannedwordslist(String bannedwordslist) {
-        this.bannedwordslist = bannedwordslist;
+        configuration.setBannedwordslist(bannedwordslist);
     }
     
     public Boolean getAllowComments() {
-        return this.allowComments;
+        return commentSettings.getAllowComments();
     }
     
     public void setAllowComments(Boolean allowComments) {
-        this.allowComments = allowComments;
+        commentSettings.setAllowComments(allowComments);
     }
     
     public Boolean getDefaultAllowComments() {
-        return defaultAllowComments;
+        return commentSettings.getDefaultAllowComments();
     }
     
     public void setDefaultAllowComments(Boolean defaultAllowComments) {
-        this.defaultAllowComments = defaultAllowComments;
+        commentSettings.setDefaultAllowComments(defaultAllowComments);
     }
     
     public int getDefaultCommentDays() {
-        return defaultCommentDays;
+        return commentSettings.getDefaultCommentDays();
     }
     
     public void setDefaultCommentDays(int defaultCommentDays) {
-        this.defaultCommentDays = defaultCommentDays;
+        commentSettings.setDefaultCommentDays(defaultCommentDays);
     }
     
     public Boolean getModerateComments() {
-        return moderateComments;
+        return commentSettings.getModerateComments();
     }
     
     public void setModerateComments(Boolean moderateComments) {
-        this.moderateComments = moderateComments;
+        commentSettings.setModerateComments(moderateComments);
     }
     
     public Boolean getEmailComments() {
-        return this.emailComments;
+        return commentSettings.getEmailComments();
     }
     
     public void setEmailComments(Boolean emailComments) {
-        this.emailComments = emailComments;
+        commentSettings.setEmailComments(emailComments);
     }
     
     public String getEmailAddress() {
@@ -316,33 +306,33 @@ public class Weblog implements Serializable {
      * EditorTheme of the Website.
      */
     public String getEditorTheme() {
-        return this.editorTheme;
+        return configuration.getEditorTheme();
     }
     
     public void setEditorTheme(String editorTheme) {
-        this.editorTheme = editorTheme;
+        configuration.setEditorTheme(editorTheme);
     }
     
     /**
      * Locale of the Website.
      */
     public String getLocale() {
-        return this.locale;
+        return localization.getLocale();
     }
     
     public void setLocale(String locale) {
-        this.locale = locale;
+        localization.setLocale(locale);
     }
     
     /**
      * Timezone of the Website.
      */
     public String getTimeZone() {
-        return this.timeZone;
+        return localization.getTimeZone();
     }
     
     public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
+        localization.setTimeZone(timeZone);
     }
     
     public Date getDateCreated() {
@@ -365,39 +355,31 @@ public class Weblog implements Serializable {
      * Comma-delimited list of user's default Plugins.
      */
     public String getDefaultPlugins() {
-        return defaultPlugins;
+        return configuration.getDefaultPlugins();
     }
 
     public void setDefaultPlugins(String string) {
-        defaultPlugins = string;
+        configuration.setDefaultPlugins(string);
     }
 
     /**
      * Set bean properties based on other bean.
      */
     public void setData(Weblog other) {
-        
         this.setId(other.getId());
         this.setName(other.getName());
         this.setHandle(other.getHandle());
         this.setTagline(other.getTagline());
         this.setCreatorUserName(other.getCreatorUserName());
-        this.setEnableBloggerApi(other.getEnableBloggerApi());
-        this.setBloggerCategory(other.getBloggerCategory());
-        this.setEditorPage(other.getEditorPage());
-        this.setBannedwordslist(other.getBannedwordslist());
-        this.setAllowComments(other.getAllowComments());
-        this.setEmailComments(other.getEmailComments());
         this.setEmailAddress(other.getEmailAddress());
-        this.setEditorTheme(other.getEditorTheme());
-        this.setLocale(other.getLocale());
-        this.setTimeZone(other.getTimeZone());
-        this.setVisible(other.getVisible());
         this.setDateCreated(other.getDateCreated());
-        this.setEntryDisplayCount(other.getEntryDisplayCount());
-        this.setActive(other.getActive());
         this.setLastModified(other.getLastModified());
-        this.setWeblogCategories(other.getWeblogCategories());
+        
+        // Delegate to components
+        this.configuration.copyFrom(other.configuration);
+        this.commentSettings.copyFrom(other.commentSettings);
+        this.localization.copyFrom(other.localization);
+        this.contentManager.copyFrom(other.contentManager);
     }
     
     
@@ -408,7 +390,7 @@ public class Weblog implements Serializable {
      * @return Locale
      */
     public Locale getLocaleInstance() {
-        return I18nUtils.toLocale(getLocale());
+        return localization.getLocaleInstance();
     }
     
     
@@ -418,54 +400,49 @@ public class Weblog implements Serializable {
      * @return TimeZone
      */
     public TimeZone getTimeZoneInstance() {
-        if (getTimeZone() == null) {
-            this.setTimeZone( TimeZone.getDefault().getID() );
-        }
-        return TimeZone.getTimeZone(getTimeZone());
+        return localization.getTimeZoneInstance();
     }
     
     /**
      * Returns true if user has all permission action specified.
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogPermissionService#hasUserPermission(Weblog, User, String)} instead
      */
+    @Deprecated
     public boolean hasUserPermission(User user, String action) {
-        return hasUserPermissions(user, Collections.singletonList(action));
+        return WebloggerFactory.getWeblogger()
+            .getWeblogPermissionService()
+            .hasUserPermission(this, user, action);
     }
     
     
     /**
      * Returns true if user has all permissions actions specified in the weblog.
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogPermissionService#hasUserPermissions(Weblog, User, List)} instead
      */
+    @Deprecated
     public boolean hasUserPermissions(User user, List<String> actions) {
-        try {
-            // look for user in website's permissions
-            UserManager umgr = WebloggerFactory.getWeblogger().getUserManager();
-            WeblogPermission userPerms = new WeblogPermission(this, user, actions);
-            return umgr.checkPermission(userPerms, user);
-            
-        } catch (WebloggerException ex) {
-            // something is going seriously wrong, not much we can do here
-            log.error("ERROR checking user permssion", ex);
-        }
-        return false;
+        return WebloggerFactory.getWeblogger()
+            .getWeblogPermissionService()
+            .hasUserPermissions(this, user, actions);
     }
     
     public int getEntryDisplayCount() {
-        return entryDisplayCount;
+        return configuration.getEntryDisplayCount();
     }
     
     public void setEntryDisplayCount(int entryDisplayCount) {
-        this.entryDisplayCount = entryDisplayCount;
+        configuration.setEntryDisplayCount(entryDisplayCount);
     }
     
     /**
      * Set to FALSE to disable and hide this weblog from public view.
      */
     public Boolean getVisible() {
-        return this.visible;
+        return configuration.getVisible();
     }
     
     public void setVisible(Boolean visible) {
-        this.visible = visible;
+        configuration.setVisible(visible);
     }
     
     /**
@@ -473,23 +450,24 @@ public class Weblog implements Serializable {
      * front page and the planet page.
      */
     public Boolean getActive() {
-        return active;
+        return configuration.getActive();
     }
     
     public void setActive(Boolean active) {
-        this.active = active;
+        configuration.setActive(active);
     }
     
     /**
      * Returns true if comment moderation is required by website or config.
      */ 
-    public boolean getCommentModerationRequired() { 
-        return (getModerateComments()
-         || WebloggerRuntimeConfig.getBooleanProperty("users.moderation.required"));
+    public boolean getCommentModerationRequired() {
+        return commentSettings.getCommentModerationRequired();
     }
     
     /** No-op */
-    public void setCommentModerationRequired(boolean modRequired) {}    
+    public void setCommentModerationRequired(boolean modRequired) {
+        commentSettings.setCommentModerationRequired(modRequired);
+    }    
 
     
     /**
@@ -516,11 +494,11 @@ public class Weblog implements Serializable {
      * If false then urls with various locale restrictions should fail.
      */
     public boolean isEnableMultiLang() {
-        return enableMultiLang;
+        return configuration.isEnableMultiLang();
     }
 
     public void setEnableMultiLang(boolean enableMultiLang) {
-        this.enableMultiLang = enableMultiLang;
+        configuration.setEnableMultiLang(enableMultiLang);
     }
     
     
@@ -531,11 +509,11 @@ public class Weblog implements Serializable {
      * default locale chosen for this weblog.
      */
     public boolean isShowAllLangs() {
-        return showAllLangs;
+        return configuration.isShowAllLangs();
     }
 
     public void setShowAllLangs(boolean showAllLangs) {
-        this.showAllLangs = showAllLangs;
+        configuration.setShowAllLangs(showAllLangs);
     }
     
     public String getURL() {
@@ -550,19 +528,19 @@ public class Weblog implements Serializable {
      * The path under the weblog's resources to an icon image.
      */
     public String getIconPath() {
-        return iconPath;
+        return configuration.getIconPath();
     }
 
     public void setIconPath(String iconPath) {
-        this.iconPath = iconPath;
+        configuration.setIconPath(iconPath);
     }
 
     public String getAnalyticsCode() {
-        return analyticsCode;
+        return configuration.getAnalyticsCode();
     }
 
     public void setAnalyticsCode(String analyticsCode) {
-        this.analyticsCode = analyticsCode;
+        configuration.setAnalyticsCode(analyticsCode);
     }
 
     /**
@@ -574,28 +552,21 @@ public class Weblog implements Serializable {
      *
      */
     public String getAbout() {
-        return about;
+        return configuration.getAbout();
     }
 
     public void setAbout(String about) {
-        this.about = Utilities.removeHTML(about);
+        configuration.setAbout(about);
     }
     
     
     /**
      * Get initialized plugins for use during rendering process.
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogPluginService#getInitializedPlugins(Weblog)} instead
      */
+    @Deprecated
     public Map<String, WeblogEntryPlugin> getInitializedPlugins() {
-        if (initializedPlugins == null) {
-            try {
-                Weblogger roller = WebloggerFactory.getWeblogger();
-                PluginManager ppmgr = roller.getPluginManager();
-                initializedPlugins = ppmgr.getWeblogEntryPlugins(this);
-            } catch (Exception e) {
-                log.error("ERROR: initializing plugins");
-            }
-        }
-        return initializedPlugins;
+        return configuration.getInitializedPlugins();
     }
     
     /** 
@@ -604,31 +575,18 @@ public class Weblog implements Serializable {
      * @return Weblog entry specified by anchor
      */
     public WeblogEntry getWeblogEntry(String anchor) {
-        WeblogEntry entry = null;
-        try {
-            Weblogger roller = WebloggerFactory.getWeblogger();
-            WeblogEntryManager wmgr = roller.getWeblogEntryManager();
-            entry = wmgr.getWeblogEntryByAnchor(this, anchor);
-        } catch (WebloggerException e) {
-            log.error("ERROR: getting entry by anchor");
-        }
-        return entry;
+        return contentManager.getWeblogEntry(anchor);
     }
 
+    /**
+     * Get weblog category by name.
+     * @param categoryName The name of the category
+     * @return The category or null if not found
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogCategoryService#getCategoryByName(Weblog, String)} instead
+     */
+    @Deprecated
     public WeblogCategory getWeblogCategory(String categoryName) {
-        WeblogCategory category = null;
-        try {
-            Weblogger roller = WebloggerFactory.getWeblogger();
-            WeblogEntryManager wmgr = roller.getWeblogEntryManager();
-            if (categoryName != null && !categoryName.equals("nil")) {
-                category = wmgr.getWeblogCategoryByName(this, categoryName);
-            } else {
-                category = getWeblogCategories().iterator().next();
-            }
-        } catch (WebloggerException e) {
-            log.error("ERROR: fetching category: " + categoryName, e);
-        }
-        return category;
+        return contentManager.getWeblogCategory(categoryName);
     }
 
     
@@ -639,27 +597,7 @@ public class Weblog implements Serializable {
      * @return List of weblog entry objects.
      */
     public List<WeblogEntry> getRecentWeblogEntries(String cat, int length) {
-        if (cat != null && "nil".equals(cat)) {
-            cat = null;
-        }
-        if (length > MAX_ENTRIES) {
-            length = MAX_ENTRIES;
-        }
-        if (length < 1) {
-            return Collections.emptyList();
-        }
-        try {
-            WeblogEntryManager wmgr = WebloggerFactory.getWeblogger().getWeblogEntryManager();
-            WeblogEntrySearchCriteria wesc = new WeblogEntrySearchCriteria();
-            wesc.setWeblog(this);
-            wesc.setCatName(cat);
-            wesc.setStatus(PubStatus.PUBLISHED);
-            wesc.setMaxResults(length);
-            return wmgr.getWeblogEntries(wesc);
-        } catch (WebloggerException e) {
-            log.error("ERROR: getting recent entries", e);
-        }
-        return Collections.emptyList();
+        return contentManager.getRecentWeblogEntries(cat, length);
     }
     
     /**
@@ -669,31 +607,7 @@ public class Weblog implements Serializable {
      * @return List of weblog entry objects.
      */
     public List<WeblogEntry> getRecentWeblogEntriesByTag(String tag, int length) {
-        if (tag != null && "nil".equals(tag)) {
-            tag = null;
-        }
-        if (length > MAX_ENTRIES) {
-            length = MAX_ENTRIES;
-        }
-        if (length < 1) {
-            return Collections.emptyList();
-        }
-        List<String> tags = Collections.emptyList();
-        if (tag != null) {
-            tags = List.of(tag);
-        }
-        try {
-            WeblogEntryManager wmgr = WebloggerFactory.getWeblogger().getWeblogEntryManager();
-            WeblogEntrySearchCriteria wesc = new WeblogEntrySearchCriteria();
-            wesc.setWeblog(this);
-            wesc.setTags(tags);
-            wesc.setStatus(PubStatus.PUBLISHED);
-            wesc.setMaxResults(length);
-            return wmgr.getWeblogEntries(wesc);
-        } catch (WebloggerException e) {
-            log.error("ERROR: getting recent entries", e);
-        }
-        return Collections.emptyList();
+        return contentManager.getRecentWeblogEntriesByTag(tag, length);
     }   
     
     /**
@@ -702,24 +616,7 @@ public class Weblog implements Serializable {
      * @return List of comment objects.
      */
     public List<WeblogEntryComment> getRecentComments(int length) {
-        if (length > MAX_ENTRIES) {
-            length = MAX_ENTRIES;
-        }
-        if (length < 1) {
-            return Collections.emptyList();
-        }
-        try {
-            WeblogEntryManager wmgr = WebloggerFactory.getWeblogger().getWeblogEntryManager();
-            CommentSearchCriteria csc = new CommentSearchCriteria();
-            csc.setWeblog(this);
-            csc.setStatus(WeblogEntryComment.ApprovalStatus.APPROVED);
-            csc.setReverseChrono(true);
-            csc.setMaxResults(length);
-            return wmgr.getComments(csc);
-        } catch (WebloggerException e) {
-            log.error("ERROR: getting recent comments", e);
-        }
-        return Collections.emptyList();
+        return commentSettings.getRecentComments(length);
     }
 
     
@@ -727,20 +624,11 @@ public class Weblog implements Serializable {
      * Get bookmark folder by name.
      * @param folderName Name or path of bookmark folder to be returned (null for root)
      * @return Folder object requested.
+     * @deprecated This method delegates to BookmarkManager - consider using BookmarkManager directly
      */
+    @Deprecated
     public WeblogBookmarkFolder getBookmarkFolder(String folderName) {
-        try {
-            Weblogger roller = WebloggerFactory.getWeblogger();
-            BookmarkManager bmgr = roller.getBookmarkManager();
-            if (folderName == null || folderName.equals("nil") || folderName.trim().equals("/")) {
-                return bmgr.getDefaultFolder(this);
-            } else {
-                return bmgr.getFolder(this, folderName);
-            }
-        } catch (WebloggerException re) {
-            log.error("ERROR: fetching folder for weblog", re);
-        }
-        return null;
+        return contentManager.getBookmarkFolder(folderName);
     }
 
 
@@ -748,17 +636,7 @@ public class Weblog implements Serializable {
      * Get number of hits counted today.
      */
     public int getTodaysHits() {
-        try {
-            Weblogger roller = WebloggerFactory.getWeblogger();
-            WeblogEntryManager mgr = roller.getWeblogEntryManager();
-            WeblogHitCount hitCount = mgr.getHitCountByWeblog(this);
-            
-            return (hitCount != null) ? hitCount.getDailyHits() : 0;
-            
-        } catch (WebloggerException e) {
-            log.error("Error getting weblog hit count", e);
-        }
-        return 0;
+        return metrics.getTodaysHits();
     }
 
     /**
@@ -769,45 +647,15 @@ public class Weblog implements Serializable {
      * @return          Collection of WeblogEntryTag objects
      */
     public List<TagStat> getPopularTags(int sinceDays, int length) {
-        Date startDate = null;
-        if(sinceDays > 0) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(new Date());
-            cal.add(Calendar.DATE, -1 * sinceDays);        
-            startDate = cal.getTime();     
-        }        
-        try {            
-            Weblogger roller = WebloggerFactory.getWeblogger();
-            WeblogEntryManager wmgr = roller.getWeblogEntryManager();
-            return wmgr.getPopularTags(this, startDate, 0, length);
-        } catch (Exception e) {
-            log.error("ERROR: fetching popular tags for weblog " + this.getName(), e);
-        }
-        return Collections.emptyList();
+        return contentManager.getPopularTags(sinceDays, length);
     }      
 
     public long getCommentCount() {
-        long count = 0;
-        try {
-            Weblogger roller = WebloggerFactory.getWeblogger();
-            WeblogEntryManager mgr = roller.getWeblogEntryManager();
-            count = mgr.getCommentCount(this);            
-        } catch (WebloggerException e) {
-            log.error("Error getting comment count for weblog " + this.getName(), e);
-        }
-        return count;
+        return commentSettings.getCommentCount();
     }
     
     public long getEntryCount() {
-        long count = 0;
-        try {
-            Weblogger roller = WebloggerFactory.getWeblogger();
-            WeblogEntryManager mgr = roller.getWeblogEntryManager();
-            count = mgr.getEntryCount(this);            
-        } catch (WebloggerException e) {
-            log.error("Error getting entry count for weblog " + this.getName(), e);
-        }
-        return count;
+        return contentManager.getEntryCount();
     }
 
 
@@ -815,71 +663,47 @@ public class Weblog implements Serializable {
      * Add a category as a child of this category.
      */
     public void addCategory(WeblogCategory category) {
-
-        // make sure category is not null
-        if(category == null || category.getName() == null) {
-            throw new IllegalArgumentException("Category cannot be null and must have a valid name");
-        }
-
-        // make sure we don't already have a category with that name
-        if(hasCategory(category.getName())) {
-            throw new IllegalArgumentException("Duplicate category name '"+category.getName()+"'");
-        }
-
-        // add it to our list of child categories
-        getWeblogCategories().add(category);
+        contentManager.addCategory(category);
     }
 
     public List<WeblogCategory> getWeblogCategories() {
-        return weblogCategories;
+        return contentManager.getWeblogCategories();
     }
 
     public void setWeblogCategories(List<WeblogCategory> cats) {
-        this.weblogCategories = cats;
+        contentManager.setWeblogCategories(cats);
     }
 
+    /**
+     * Check if weblog has a category with the given name.
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogCategoryService#hasCategory(Weblog, String)} instead
+     */
+    @Deprecated
     public boolean hasCategory(String name) {
-        for (WeblogCategory cat : getWeblogCategories()) {
-            if(name.equals(cat.getName())) {
-                return true;
-            }
-        }
-        return false;
+        return contentManager.hasCategory(name);
     }
 
     public List<WeblogBookmarkFolder> getBookmarkFolders() {
-        return bookmarkFolders;
+        return contentManager.getBookmarkFolders();
     }
 
     public void setBookmarkFolders(List<WeblogBookmarkFolder> bookmarkFolders) {
-        this.bookmarkFolders = bookmarkFolders;
+        contentManager.setBookmarkFolders(bookmarkFolders);
     }
 
     public List<MediaFileDirectory> getMediaFileDirectories() {
-        return mediaFileDirectories;
+        return contentManager.getMediaFileDirectories();
     }
 
     public void setMediaFileDirectories(List<MediaFileDirectory> mediaFileDirectories) {
-        this.mediaFileDirectories = mediaFileDirectories;
+        contentManager.setMediaFileDirectories(mediaFileDirectories);
     }
 
     /**
      * Add a bookmark folder to this weblog.
      */
     public void addBookmarkFolder(WeblogBookmarkFolder folder) {
-
-        // make sure folder is not null
-        if(folder == null || folder.getName() == null) {
-            throw new IllegalArgumentException("Folder cannot be null and must have a valid name");
-        }
-
-        // make sure we don't already have a folder with that name
-        if(this.hasBookmarkFolder(folder.getName())) {
-            throw new IllegalArgumentException("Duplicate folder name '" + folder.getName() + "'");
-        }
-
-        // add it to our list of child folder
-        getBookmarkFolders().add(folder);
+        contentManager.addBookmarkFolder(folder);
     }
 
     /**
@@ -887,14 +711,11 @@ public class Weblog implements Serializable {
      *
      * @param name The name of the folder to check for.
      * @return boolean true if exists, false otherwise.
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogBookmarkService#hasBookmarkFolder(Weblog, String)} instead
      */
+    @Deprecated
     public boolean hasBookmarkFolder(String name) {
-        for (WeblogBookmarkFolder folder : this.getBookmarkFolders()) {
-            if(name.equalsIgnoreCase(folder.getName())) {
-                return true;
-            }
-        }
-        return false;
+        return contentManager.hasBookmarkFolder(name);
     }
 
     /**
@@ -903,23 +724,20 @@ public class Weblog implements Serializable {
      * @param name directory name
      *
      * @return true if directory is present, false otherwise.
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogMediaService#hasMediaFileDirectory(Weblog, String)} instead
      */
+    @Deprecated
     public boolean hasMediaFileDirectory(String name) {
-        for (MediaFileDirectory directory : this.getMediaFileDirectories()) {
-            if (directory.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
+        return contentManager.hasMediaFileDirectory(name);
     }
 
+    /**
+     * Get media file directory by name.
+     * @deprecated Use {@link org.apache.roller.weblogger.business.services.WeblogMediaService#getMediaFileDirectory(Weblog, String)} instead
+     */
+    @Deprecated
     public MediaFileDirectory getMediaFileDirectory(String name) {
-        for (MediaFileDirectory dir : this.getMediaFileDirectories()) {
-            if (name.equals(dir.getName())) {
-                return dir;
-            }
-        }
-        return null;
+        return contentManager.getMediaFileDirectory(name);
     }
 
 }
